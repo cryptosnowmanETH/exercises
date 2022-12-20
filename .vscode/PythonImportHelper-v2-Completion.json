@@ -1,0 +1,1396 @@
+[
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "getpass",
+        "importPath": "getpass",
+        "description": "getpass",
+        "isExtraImport": true,
+        "detail": "getpass",
+        "documentation": {}
+    },
+    {
+        "label": "OptionParser",
+        "importPath": "optparse",
+        "description": "optparse",
+        "isExtraImport": true,
+        "detail": "optparse",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "print_",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "__version__",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "CockroachDatabase",
+        "importPath": "playhouse.cockroachdb",
+        "description": "playhouse.cockroachdb",
+        "isExtraImport": true,
+        "detail": "playhouse.cockroachdb",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "playhouse.reflection",
+        "description": "playhouse.reflection",
+        "isExtraImport": true,
+        "detail": "playhouse.reflection",
+        "documentation": {}
+    },
+    {
+        "label": "string",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "string",
+        "description": "string",
+        "detail": "string",
+        "documentation": {}
+    },
+    {
+        "label": "sqlite3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "detail": "sqlite3",
+        "documentation": {}
+    },
+    {
+        "label": "defaultdict",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "pysnooper",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pysnooper",
+        "description": "pysnooper",
+        "detail": "pysnooper",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "kind": 6,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "class BaseModel(Model):\n    class Meta:\n        database = database\n\"\"\"\nUNKNOWN_FIELD = \"\"\"\\\nclass UnknownField(object):\n    def __init__(self, *_, **__): pass\n\"\"\"\nDATABASE_ALIASES = {\n    CockroachDatabase: ['cockroach', 'cockroachdb', 'crdb'],",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "UnknownField",
+        "kind": 6,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "class UnknownField(object):\n    def __init__(self, *_, **__): pass\n\"\"\"\nDATABASE_ALIASES = {\n    CockroachDatabase: ['cockroach', 'cockroachdb', 'crdb'],\n    MySQLDatabase: ['mysql', 'mysqldb'],\n    PostgresqlDatabase: ['postgres', 'postgresql'],\n    SqliteDatabase: ['sqlite', 'sqlite3'],\n}\nDATABASE_MAP = dict((value, key)",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "make_introspector",
+        "kind": 2,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "def make_introspector(database_type, database_name, **kwargs):\n    if database_type not in DATABASE_MAP:\n        err('Unrecognized database, must be one of: %s' %\n            ', '.join(DATABASE_MAP.keys()))\n        sys.exit(1)\n    schema = kwargs.pop('schema', None)\n    DatabaseClass = DATABASE_MAP[database_type]\n    db = DatabaseClass(database_name, **kwargs)\n    return Introspector.from_database(db, schema=schema)\ndef print_models(introspector, tables=None, preserve_order=False,",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "print_models",
+        "kind": 2,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "def print_models(introspector, tables=None, preserve_order=False,\n                 include_views=False, ignore_unknown=False, snake_case=True):\n    database = introspector.introspect(table_names=tables,\n                                       include_views=include_views,\n                                       snake_case=snake_case)\n    db_kwargs = introspector.get_database_kwargs()\n    header = HEADER % (\n        introspector.get_additional_imports(),\n        introspector.get_database_class().__name__,\n        introspector.get_database_name(),",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "print_header",
+        "kind": 2,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "def print_header(cmd_line, introspector):\n    timestamp = datetime.datetime.now()\n    print_('# Code generated by:')\n    print_('# python -m pwiz %s' % cmd_line)\n    print_('# Date: %s' % timestamp.strftime('%B %d, %Y %I:%M%p'))\n    print_('# Database: %s' % introspector.get_database_name())\n    print_('# Peewee version: %s' % peewee_version)\n    print_('')\ndef err(msg):\n    sys.stderr.write('\\033[91m%s\\033[0m\\n' % msg)",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "err",
+        "kind": 2,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "def err(msg):\n    sys.stderr.write('\\033[91m%s\\033[0m\\n' % msg)\n    sys.stderr.flush()\ndef get_option_parser():\n    parser = OptionParser(usage='usage: %prog [options] database_name')\n    ao = parser.add_option\n    ao('-H', '--host', dest='host')\n    ao('-p', '--port', dest='port', type='int')\n    ao('-u', '--user', dest='user')\n    ao('-P', '--password', dest='password', action='store_true')",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "get_option_parser",
+        "kind": 2,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "def get_option_parser():\n    parser = OptionParser(usage='usage: %prog [options] database_name')\n    ao = parser.add_option\n    ao('-H', '--host', dest='host')\n    ao('-p', '--port', dest='port', type='int')\n    ao('-u', '--user', dest='user')\n    ao('-P', '--password', dest='password', action='store_true')\n    engines = sorted(DATABASE_MAP)\n    ao('-e', '--engine', dest='engine', choices=engines,\n       help=('Database type, e.g. sqlite, mysql, postgresql or cockroachdb. '",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "get_connect_kwargs",
+        "kind": 2,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "def get_connect_kwargs(options):\n    ops = ('host', 'port', 'user', 'schema')\n    kwargs = dict((o, getattr(options, o)) for o in ops if getattr(options, o))\n    if options.password:\n        kwargs['password'] = getpass()\n    return kwargs\nif __name__ == '__main__':\n    raw_argv = sys.argv\n    parser = get_option_parser()\n    options, args = parser.parse_args()",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "HEADER",
+        "kind": 5,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "HEADER = \"\"\"from peewee import *%s\ndatabase = %s('%s'%s)\n\"\"\"\nBASE_MODEL = \"\"\"\\\nclass BaseModel(Model):\n    class Meta:\n        database = database\n\"\"\"\nUNKNOWN_FIELD = \"\"\"\\\nclass UnknownField(object):",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "database",
+        "kind": 5,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "database = %s('%s'%s)\n\"\"\"\nBASE_MODEL = \"\"\"\\\nclass BaseModel(Model):\n    class Meta:\n        database = database\n\"\"\"\nUNKNOWN_FIELD = \"\"\"\\\nclass UnknownField(object):\n    def __init__(self, *_, **__): pass",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_MODEL",
+        "kind": 5,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "BASE_MODEL = \"\"\"\\\nclass BaseModel(Model):\n    class Meta:\n        database = database\n\"\"\"\nUNKNOWN_FIELD = \"\"\"\\\nclass UnknownField(object):\n    def __init__(self, *_, **__): pass\n\"\"\"\nDATABASE_ALIASES = {",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "UNKNOWN_FIELD",
+        "kind": 5,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "UNKNOWN_FIELD = \"\"\"\\\nclass UnknownField(object):\n    def __init__(self, *_, **__): pass\n\"\"\"\nDATABASE_ALIASES = {\n    CockroachDatabase: ['cockroach', 'cockroachdb', 'crdb'],\n    MySQLDatabase: ['mysql', 'mysqldb'],\n    PostgresqlDatabase: ['postgres', 'postgresql'],\n    SqliteDatabase: ['sqlite', 'sqlite3'],\n}",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASE_ALIASES",
+        "kind": 5,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "DATABASE_ALIASES = {\n    CockroachDatabase: ['cockroach', 'cockroachdb', 'crdb'],\n    MySQLDatabase: ['mysql', 'mysqldb'],\n    PostgresqlDatabase: ['postgres', 'postgresql'],\n    SqliteDatabase: ['sqlite', 'sqlite3'],\n}\nDATABASE_MAP = dict((value, key)\n                    for key in DATABASE_ALIASES\n                    for value in DATABASE_ALIASES[key])\ndef make_introspector(database_type, database_name, **kwargs):",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASE_MAP",
+        "kind": 5,
+        "importPath": "venv.bin.pwiz",
+        "description": "venv.bin.pwiz",
+        "peekOfCode": "DATABASE_MAP = dict((value, key)\n                    for key in DATABASE_ALIASES\n                    for value in DATABASE_ALIASES[key])\ndef make_introspector(database_type, database_name, **kwargs):\n    if database_type not in DATABASE_MAP:\n        err('Unrecognized database, must be one of: %s' %\n            ', '.join(DATABASE_MAP.keys()))\n        sys.exit(1)\n    schema = kwargs.pop('schema', None)\n    DatabaseClass = DATABASE_MAP[database_type]",
+        "detail": "venv.bin.pwiz",
+        "documentation": {}
+    },
+    {
+        "label": "get_transportation_data",
+        "kind": 2,
+        "importPath": "bookingsystem",
+        "description": "bookingsystem",
+        "peekOfCode": "def get_transportation_data():\n    transporting_package = {}\n    transporting_package['customer_name'] = input(\"Please input the customer name \")\n    transporting_package['package_description'] = input(\"Please enter the package description \")\n    transporting_package['dangerous_contents'] = input('Are the contents dangerous? [Y/N] ')\n    while True:\n        transporting_package['weight'] = input('What is the weight of your item ')\n        if transporting_package['weight'].isnumeric(): #works with strings as well \n            transporting_package['weight'] = int(transporting_package['weight'])\n            break",
+        "detail": "bookingsystem",
+        "documentation": {}
+    },
+    {
+        "label": "validate_transportation_data",
+        "kind": 2,
+        "importPath": "bookingsystem",
+        "description": "bookingsystem",
+        "peekOfCode": "def validate_transportation_data(transporting_package):\n    #testing for it to be invalid \n    if not (5 <= len(transporting_package['customer_name']) <= 15):\n            print('Invalid customer name must be between 5 and 15 characters')\n    for letter in transporting_package['customer_name']:\n        if letter not in string.ascii_letters + \" \":\n            print('Invalid customer name, customer name must only contain letters')\n            break\n    if not (10 <= len(transporting_package['package_description']) <= 25):\n        print(\"Package name should be between 10 and 25 characters\")",
+        "detail": "bookingsystem",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "bookingsystem",
+        "description": "bookingsystem",
+        "peekOfCode": "def main(): \n        transporting_package = get_transportation_data()\n        transporting_package = validate_transportation_data(transporting_package)\n    #print(transporting_package['customer_name'])\n    #print(transporting_package['package_description'])\n    #print(transporting_package['dangerous_contents'])\nif __name__ == \"__main__\":\n        main()\n#print(get_transportation_data)\n#ideally we build it out in components so that errors are being passed after each input ",
+        "detail": "bookingsystem",
+        "documentation": {}
+    },
+    {
+        "label": "capitalLetters",
+        "kind": 2,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "def capitalLetters(stringinput):\n    letterlist = []\n    letterindex = [] \n    for letter in stringinput:\n        if letter.isupper():\n            letterindex.append(stringinput.find(letter))\n    return letterindex\n#print(capitalLetters(\"HeLlO\"))\n\"\"\"Online status\nThe aim of this challenge is, given a dictionary of people's online status, to count the number of people who are online.",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "online_count",
+        "kind": 2,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "def online_count(isOnline):\n    online = 0 \n    for status, people in isOnline.items():\n        if people == \"online\":\n            online += 1\n    return online \n#print(online_count(statuses))\n\"\"\"3. Write a Python script to concatenate following dictionaries to create a new one. Go to the editor\nSample Dictionary :\ndic1={1:10, 2:20}",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "changeLetters",
+        "kind": 2,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "def changeLetters(anystring):\n    correctedstring = anystring[-1] + anystring[1:-1] + anystring[0]\n    return correctedstring\n#print(changeLetters(\"dave\"))\ndef front3(anystring):\n    correctedstring = anystring[0:3]*3\n    return correctedstring\n#print(front3('Java'))\n#print(front3('Chocolate'))\n#print(front3('abc'))",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "front3",
+        "kind": 2,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "def front3(anystring):\n    correctedstring = anystring[0:3]*3\n    return correctedstring\n#print(front3('Java'))\n#print(front3('Chocolate'))\n#print(front3('abc'))\n\"\"\"Write a Python script to add a key to a dictionary.\"\"\"\ndef appendKey(anydict):\n    newPair = {0: 10, 1: 20}\n    #newPair = newPair.update(anydict)  = {2:30}// this doesn't work will return none ",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "appendKey",
+        "kind": 2,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "def appendKey(anydict):\n    newPair = {0: 10, 1: 20}\n    #newPair = newPair.update(anydict)  = {2:30}// this doesn't work will return none \n    newPair.update(anydict)\n    newPair[0]=5\n    return newPair\n#print(appendKey({2:30, 4:30, 5:30}))\n#Adding new key value pair in a dictionary through a loop \ndef appendKey(anydict):\n    newPair = {0: 10, 1: 20}",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "appendKey",
+        "kind": 2,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "def appendKey(anydict):\n    newPair = {0: 10, 1: 20}\n    #newPair = newPair.update(anydict)  = {2:30}// this doesn't work will return none \n    for key, value in anydict.items():\n        newPair[key] = value \n    return newPair\n#print(appendKey({2:30}))\n\"\"\"Sample Dictionary : {0: 10, 1: 20}\nExpected Result : {0: 10, 1: 20, 2: 30}\"\"\"\n#removing a key value pari ",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "letters",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "letters = \"woeirjf\"\n\"\"\"for letter in letters:\n    print(letter)\"\"\"\ndef capitalLetters(stringinput):\n    letterlist = []\n    letterindex = [] \n    for letter in stringinput:\n        if letter.isupper():\n            letterindex.append(stringinput.find(letter))\n    return letterindex",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "statuses",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "statuses = {\n    \"Alice\": \"online\",\n    \"Bob\": \"offline\",\n    \"Eve\": \"online\",\n}\nIn this case, the number of people online is 2.\nWrite a function named online_count that takes one parameter. The parameter is a dictionary that maps from strings of names to the string \"online\" or \"offline\", as seen above.\nYour function should return the number of people who are online.\"\"\"\nstatuses = {\n    \"Alice\": \"online\",",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "statuses",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "statuses = {\n    \"Alice\": \"online\",\n    \"Bob\": \"offline\",\n    \"Eve\": \"online\",\n    \"Evan\": \"online\",\n}\n\"\"\"online = 0 \nfor people, status in statuses.items():\n    if status == \"online\":\n        online += 1",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"online",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "\"\"\"online = 0 \nfor people, status in statuses.items():\n    if status == \"online\":\n        online += 1\n        continue\nprint(online)\"\"\"\ndef online_count(isOnline):\n    online = 0 \n    for status, people in isOnline.items():\n        if people == \"online\":",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "key_value[2]",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "key_value[2] = '56'       \nkey_value[1] = '2'\nkey_value[4] = '12'\nkey_value[5] = '24'\nkey_value[6] = '18'\nkey_value[3] = '323'\nOutput:\n1 2 3 4 5 6 \"\"\"\n\"\"\"Example 5: Sort Dictionary By Value in Python\nIn this example, we are trying to sort the dictionary by values in Python. Here we are using dictionary comprehension to sort our values.\"\"\"",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "key_value[1]",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "key_value[1] = '2'\nkey_value[4] = '12'\nkey_value[5] = '24'\nkey_value[6] = '18'\nkey_value[3] = '323'\nOutput:\n1 2 3 4 5 6 \"\"\"\n\"\"\"Example 5: Sort Dictionary By Value in Python\nIn this example, we are trying to sort the dictionary by values in Python. Here we are using dictionary comprehension to sort our values.\"\"\"\n\"\"\"Input:",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "key_value[4]",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "key_value[4] = '12'\nkey_value[5] = '24'\nkey_value[6] = '18'\nkey_value[3] = '323'\nOutput:\n1 2 3 4 5 6 \"\"\"\n\"\"\"Example 5: Sort Dictionary By Value in Python\nIn this example, we are trying to sort the dictionary by values in Python. Here we are using dictionary comprehension to sort our values.\"\"\"\n\"\"\"Input:\nkey_value['ravi'] = 10       ",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "key_value[5]",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "key_value[5] = '24'\nkey_value[6] = '18'\nkey_value[3] = '323'\nOutput:\n1 2 3 4 5 6 \"\"\"\n\"\"\"Example 5: Sort Dictionary By Value in Python\nIn this example, we are trying to sort the dictionary by values in Python. Here we are using dictionary comprehension to sort our values.\"\"\"\n\"\"\"Input:\nkey_value['ravi'] = 10       \nkey_value['rajnish'] = 9",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "key_value[6]",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "key_value[6] = '18'\nkey_value[3] = '323'\nOutput:\n1 2 3 4 5 6 \"\"\"\n\"\"\"Example 5: Sort Dictionary By Value in Python\nIn this example, we are trying to sort the dictionary by values in Python. Here we are using dictionary comprehension to sort our values.\"\"\"\n\"\"\"Input:\nkey_value['ravi'] = 10       \nkey_value['rajnish'] = 9\nkey_value['sanjeev'] = 15",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "key_value[3]",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "key_value[3] = '323'\nOutput:\n1 2 3 4 5 6 \"\"\"\n\"\"\"Example 5: Sort Dictionary By Value in Python\nIn this example, we are trying to sort the dictionary by values in Python. Here we are using dictionary comprehension to sort our values.\"\"\"\n\"\"\"Input:\nkey_value['ravi'] = 10       \nkey_value['rajnish'] = 9\nkey_value['sanjeev'] = 15\nkey_value['yash'] = 2",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "key_value['ravi']",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "key_value['ravi'] = 10       \nkey_value['rajnish'] = 9\nkey_value['sanjeev'] = 15\nkey_value['yash'] = 2\nkey_value'suraj'] = 32\nOutput:\n{'ravi': 2, 'rajnish': 9, 'sanjeev': 10, 'yash': 15, 'suraj': 32\"\"\"\n\"\"\"Given a string, return a new string where the first and last chars have been exchanged.\nfront_back('code') → 'eodc'\nfront_back('a') → 'a'",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "key_value['rajnish']",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "key_value['rajnish'] = 9\nkey_value['sanjeev'] = 15\nkey_value['yash'] = 2\nkey_value'suraj'] = 32\nOutput:\n{'ravi': 2, 'rajnish': 9, 'sanjeev': 10, 'yash': 15, 'suraj': 32\"\"\"\n\"\"\"Given a string, return a new string where the first and last chars have been exchanged.\nfront_back('code') → 'eodc'\nfront_back('a') → 'a'\nfront_back('ab') → 'ba'",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "key_value['sanjeev']",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "key_value['sanjeev'] = 15\nkey_value['yash'] = 2\nkey_value'suraj'] = 32\nOutput:\n{'ravi': 2, 'rajnish': 9, 'sanjeev': 10, 'yash': 15, 'suraj': 32\"\"\"\n\"\"\"Given a string, return a new string where the first and last chars have been exchanged.\nfront_back('code') → 'eodc'\nfront_back('a') → 'a'\nfront_back('ab') → 'ba'\nfront3('Java') → 'JavJavJav'",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "key_value['yash']",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "key_value['yash'] = 2\nkey_value'suraj'] = 32\nOutput:\n{'ravi': 2, 'rajnish': 9, 'sanjeev': 10, 'yash': 15, 'suraj': 32\"\"\"\n\"\"\"Given a string, return a new string where the first and last chars have been exchanged.\nfront_back('code') → 'eodc'\nfront_back('a') → 'a'\nfront_back('ab') → 'ba'\nfront3('Java') → 'JavJavJav'\nfront3('Chocolate') → 'ChoChoCho'",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "key_value'suraj']",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "key_value'suraj'] = 32\nOutput:\n{'ravi': 2, 'rajnish': 9, 'sanjeev': 10, 'yash': 15, 'suraj': 32\"\"\"\n\"\"\"Given a string, return a new string where the first and last chars have been exchanged.\nfront_back('code') → 'eodc'\nfront_back('a') → 'a'\nfront_back('ab') → 'ba'\nfront3('Java') → 'JavJavJav'\nfront3('Chocolate') → 'ChoChoCho'\nfront3('abc') → 'abcabcabc'\"\"\"",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"front",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "\"\"\"front = \"code\"\nfront_replaced = front[-1] + front[1:-1] + front[0]\nprint(front[:-1])\nprint(front[-1])\nprint(front[1:-1])\nprint(front[1])\nprint(front_replaced)\"\"\"\nfront_back = 'code'\ndef changeLetters(anystring):\n    correctedstring = anystring[-1] + anystring[1:-1] + anystring[0]",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "front_replaced",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "front_replaced = front[-1] + front[1:-1] + front[0]\nprint(front[:-1])\nprint(front[-1])\nprint(front[1:-1])\nprint(front[1])\nprint(front_replaced)\"\"\"\nfront_back = 'code'\ndef changeLetters(anystring):\n    correctedstring = anystring[-1] + anystring[1:-1] + anystring[0]\n    return correctedstring",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "front_back",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "front_back = 'code'\ndef changeLetters(anystring):\n    correctedstring = anystring[-1] + anystring[1:-1] + anystring[0]\n    return correctedstring\n#print(changeLetters(\"dave\"))\ndef front3(anystring):\n    correctedstring = anystring[0:3]*3\n    return correctedstring\n#print(front3('Java'))\n#print(front3('Chocolate'))",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "names_ages",
+        "kind": 5,
+        "importPath": "capital",
+        "description": "capital",
+        "peekOfCode": "names_ages = {\n    'jeremy' : 42,\n    'andrew': 39,\n    'brad': 19,\n}\nnames_ages.pop('jeremy')\nprint(names_ages)",
+        "detail": "capital",
+        "documentation": {}
+    },
+    {
+        "label": "person",
+        "kind": 5,
+        "importPath": "class_decs",
+        "description": "class_decs",
+        "peekOfCode": "person = {'cars': 'BMW'}\nassert person['cars'] == 'BMW'\nperson['cars'] = 'Mercedes'\nperson['wheels'] = 'Hot wheels'\n#print(person)\n#print(person.items())\nfor key, value in person.items():\n    print(key, value)\n\"\"\"\ncodes = {'a': 2, 'b': 3}",
+        "detail": "class_decs",
+        "documentation": {}
+    },
+    {
+        "label": "person['cars']",
+        "kind": 5,
+        "importPath": "class_decs",
+        "description": "class_decs",
+        "peekOfCode": "person['cars'] = 'Mercedes'\nperson['wheels'] = 'Hot wheels'\n#print(person)\n#print(person.items())\nfor key, value in person.items():\n    print(key, value)\n\"\"\"\ncodes = {'a': 2, 'b': 3}\ncodes['a'] += 1\nassert codes['a'] == 3",
+        "detail": "class_decs",
+        "documentation": {}
+    },
+    {
+        "label": "person['wheels']",
+        "kind": 5,
+        "importPath": "class_decs",
+        "description": "class_decs",
+        "peekOfCode": "person['wheels'] = 'Hot wheels'\n#print(person)\n#print(person.items())\nfor key, value in person.items():\n    print(key, value)\n\"\"\"\ncodes = {'a': 2, 'b': 3}\ncodes['a'] += 1\nassert codes['a'] == 3\ncodes['a'] = codes['a'] + 1",
+        "detail": "class_decs",
+        "documentation": {}
+    },
+    {
+        "label": "codes",
+        "kind": 5,
+        "importPath": "class_decs",
+        "description": "class_decs",
+        "peekOfCode": "codes = {'a': 2, 'b': 3}\ncodes['a'] += 1\nassert codes['a'] == 3\ncodes['a'] = codes['a'] + 1\ntry:\n    codes['x'] += 4\nexcept KeyError:\n    codes['x'] = 4\nprint(codes['x'])\nif codes.get('y', None) is None:",
+        "detail": "class_decs",
+        "documentation": {}
+    },
+    {
+        "label": "codes['a']",
+        "kind": 5,
+        "importPath": "class_decs",
+        "description": "class_decs",
+        "peekOfCode": "codes['a'] = codes['a'] + 1\ntry:\n    codes['x'] += 4\nexcept KeyError:\n    codes['x'] = 4\nprint(codes['x'])\nif codes.get('y', None) is None:\n    codes['y'] = 1\nelse:\n    codes['y'] += 1",
+        "detail": "class_decs",
+        "documentation": {}
+    },
+    {
+        "label": "denominator",
+        "kind": 5,
+        "importPath": "class_decs",
+        "description": "class_decs",
+        "peekOfCode": "denominator = 2\ntry:\n    result = 10 / denominator\nexcept ZeroDivisionError:\n    print(\"cant div by zero\")\n    result = 10 / 1\nprint(result)\nheadings = ['col_a', 'col_b', 'col_c']\nrows = [[2, 5, 7], [4, 6, 1]]\n# {'col_a': 2, 'col_b': 5",
+        "detail": "class_decs",
+        "documentation": {}
+    },
+    {
+        "label": "headings",
+        "kind": 5,
+        "importPath": "class_decs",
+        "description": "class_decs",
+        "peekOfCode": "headings = ['col_a', 'col_b', 'col_c']\nrows = [[2, 5, 7], [4, 6, 1]]\n# {'col_a': 2, 'col_b': 5\nprint(dict(zip(headings, rows[0])))\nnumbers = {3, 4, 5, 6, 7, 8}\nmore_numbers = [\n    0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 8, 8, 8, 8, 8,\n    2, 4, 3, 2, 43, 1\n]\nmore_numbers = list(set(more_numbers))",
+        "detail": "class_decs",
+        "documentation": {}
+    },
+    {
+        "label": "rows",
+        "kind": 5,
+        "importPath": "class_decs",
+        "description": "class_decs",
+        "peekOfCode": "rows = [[2, 5, 7], [4, 6, 1]]\n# {'col_a': 2, 'col_b': 5\nprint(dict(zip(headings, rows[0])))\nnumbers = {3, 4, 5, 6, 7, 8}\nmore_numbers = [\n    0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 8, 8, 8, 8, 8,\n    2, 4, 3, 2, 43, 1\n]\nmore_numbers = list(set(more_numbers))\nprint(more_numbers)",
+        "detail": "class_decs",
+        "documentation": {}
+    },
+    {
+        "label": "numbers",
+        "kind": 5,
+        "importPath": "class_decs",
+        "description": "class_decs",
+        "peekOfCode": "numbers = {3, 4, 5, 6, 7, 8}\nmore_numbers = [\n    0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 8, 8, 8, 8, 8,\n    2, 4, 3, 2, 43, 1\n]\nmore_numbers = list(set(more_numbers))\nprint(more_numbers)\n\"\"\"",
+        "detail": "class_decs",
+        "documentation": {}
+    },
+    {
+        "label": "more_numbers",
+        "kind": 5,
+        "importPath": "class_decs",
+        "description": "class_decs",
+        "peekOfCode": "more_numbers = [\n    0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 8, 8, 8, 8, 8,\n    2, 4, 3, 2, 43, 1\n]\nmore_numbers = list(set(more_numbers))\nprint(more_numbers)\n\"\"\"",
+        "detail": "class_decs",
+        "documentation": {}
+    },
+    {
+        "label": "more_numbers",
+        "kind": 5,
+        "importPath": "class_decs",
+        "description": "class_decs",
+        "peekOfCode": "more_numbers = list(set(more_numbers))\nprint(more_numbers)\n\"\"\"",
+        "detail": "class_decs",
+        "documentation": {}
+    },
+    {
+        "label": "addup",
+        "kind": 2,
+        "importPath": "creation",
+        "description": "creation",
+        "peekOfCode": "def addup(one: int, two: int) -> int:\n    #should be integers \n    sum = one + two \n    return sum\n#functions return none by default \n#all functions are variables that do something \nprint(addup)\ndef subtract(x, y):\n    return x - y \nprint(subtract(2,1))",
+        "detail": "creation",
+        "documentation": {}
+    },
+    {
+        "label": "subtract",
+        "kind": 2,
+        "importPath": "creation",
+        "description": "creation",
+        "peekOfCode": "def subtract(x, y):\n    return x - y \nprint(subtract(2,1))\ndef calculate(f,number1,number2):\n    return f(number1,number2)\n#using a function as a parameter \n#must have pure functions: a function that depends on its parameters for all of its inputs, and communicates to outside world via its return statement \nprint(calculate(subtract,1,2))\ndef doit():\n    return \"abc\", 32, [10,11,12]",
+        "detail": "creation",
+        "documentation": {}
+    },
+    {
+        "label": "calculate",
+        "kind": 2,
+        "importPath": "creation",
+        "description": "creation",
+        "peekOfCode": "def calculate(f,number1,number2):\n    return f(number1,number2)\n#using a function as a parameter \n#must have pure functions: a function that depends on its parameters for all of its inputs, and communicates to outside world via its return statement \nprint(calculate(subtract,1,2))\ndef doit():\n    return \"abc\", 32, [10,11,12]\nx = doit()\n#returns tuple \nprint(x[0])",
+        "detail": "creation",
+        "documentation": {}
+    },
+    {
+        "label": "doit",
+        "kind": 2,
+        "importPath": "creation",
+        "description": "creation",
+        "peekOfCode": "def doit():\n    return \"abc\", 32, [10,11,12]\nx = doit()\n#returns tuple \nprint(x[0])\na,b,c = doit()\n#unpacks the tuple into three variables \nprint(a)\nprint(b)\nprint(c)",
+        "detail": "creation",
+        "documentation": {}
+    },
+    {
+        "label": "x",
+        "kind": 5,
+        "importPath": "creation",
+        "description": "creation",
+        "peekOfCode": "x = doit()\n#returns tuple \nprint(x[0])\na,b,c = doit()\n#unpacks the tuple into three variables \nprint(a)\nprint(b)\nprint(c)\nxxx = print \nxxx(\"hello from xxx\")",
+        "detail": "creation",
+        "documentation": {}
+    },
+    {
+        "label": "a,b,c",
+        "kind": 5,
+        "importPath": "creation",
+        "description": "creation",
+        "peekOfCode": "a,b,c = doit()\n#unpacks the tuple into three variables \nprint(a)\nprint(b)\nprint(c)\nxxx = print \nxxx(\"hello from xxx\")\nnumbers = [1,202,500]\nnumbers2 = numbers.copy()\n#simply copies the name, but does not copy over the values ",
+        "detail": "creation",
+        "documentation": {}
+    },
+    {
+        "label": "xxx",
+        "kind": 5,
+        "importPath": "creation",
+        "description": "creation",
+        "peekOfCode": "xxx = print \nxxx(\"hello from xxx\")\nnumbers = [1,202,500]\nnumbers2 = numbers.copy()\n#simply copies the name, but does not copy over the values \n#with method copy() it copies over the list to another list instead of just renaming \nnumbers2.append(\"x\")\nprint(numbers)\nprint(numbers2)",
+        "detail": "creation",
+        "documentation": {}
+    },
+    {
+        "label": "numbers",
+        "kind": 5,
+        "importPath": "creation",
+        "description": "creation",
+        "peekOfCode": "numbers = [1,202,500]\nnumbers2 = numbers.copy()\n#simply copies the name, but does not copy over the values \n#with method copy() it copies over the list to another list instead of just renaming \nnumbers2.append(\"x\")\nprint(numbers)\nprint(numbers2)",
+        "detail": "creation",
+        "documentation": {}
+    },
+    {
+        "label": "numbers2",
+        "kind": 5,
+        "importPath": "creation",
+        "description": "creation",
+        "peekOfCode": "numbers2 = numbers.copy()\n#simply copies the name, but does not copy over the values \n#with method copy() it copies over the list to another list instead of just renaming \nnumbers2.append(\"x\")\nprint(numbers)\nprint(numbers2)",
+        "detail": "creation",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "db",
+        "description": "db",
+        "peekOfCode": "def main():\n    \"\"\" run the sql \"\"\"\n    conn = sqlite3.connect(\"dbms.db\")\n    c = conn.cursor()\n    [c.execute(statement) for statement in sql_statements]\n    conn.commit()\n    rows = c.fetchall()\n    print(rows)\n    c.close()\n    conn.close()",
+        "detail": "db",
+        "documentation": {}
+    },
+    {
+        "label": "sql_statements",
+        "kind": 5,
+        "importPath": "db",
+        "description": "db",
+        "peekOfCode": "sql_statements = (\n    \"drop table if exists test\",\n    \"create table test (id, name)\",\n    \"insert into test values (1, 'abc')\",\n    \"insert into test values (2, 'def')\",\n    \"insert into test values (3, 'xyz')\",\n    \"select id, name from test\",\n)\ndef main():\n    \"\"\" run the sql \"\"\"",
+        "detail": "db",
+        "documentation": {}
+    },
+    {
+        "label": "keys",
+        "kind": 5,
+        "importPath": "dec10prac",
+        "description": "dec10prac",
+        "peekOfCode": "keys = ['Ten', 'Twenty', 'Thirty']\nvalue = [10, 20, 30]\nnew_dict = {}\nfor values in keys:\n    for value in values: \n        new_dict[values] = value\nprint(new_dict)\n#expected output \n{'Ten': 10, 'Twenty': 20, 'Thirty': 30}",
+        "detail": "dec10prac",
+        "documentation": {}
+    },
+    {
+        "label": "value",
+        "kind": 5,
+        "importPath": "dec10prac",
+        "description": "dec10prac",
+        "peekOfCode": "value = [10, 20, 30]\nnew_dict = {}\nfor values in keys:\n    for value in values: \n        new_dict[values] = value\nprint(new_dict)\n#expected output \n{'Ten': 10, 'Twenty': 20, 'Thirty': 30}",
+        "detail": "dec10prac",
+        "documentation": {}
+    },
+    {
+        "label": "new_dict",
+        "kind": 5,
+        "importPath": "dec10prac",
+        "description": "dec10prac",
+        "peekOfCode": "new_dict = {}\nfor values in keys:\n    for value in values: \n        new_dict[values] = value\nprint(new_dict)\n#expected output \n{'Ten': 10, 'Twenty': 20, 'Thirty': 30}",
+        "detail": "dec10prac",
+        "documentation": {}
+    },
+    {
+        "label": "get_input",
+        "kind": 2,
+        "importPath": "dicts_dem",
+        "description": "dicts_dem",
+        "peekOfCode": "def get_input(booking_data):\n    for field, field_data in booking_data.items():\n        if field_data['is_valid']:\n            field_data['field_value'] = input(field_data['prompt'])\n    return booking_data\ndef validate(booking_data):\n    for field, field_data in booking_data.items():\n        field_data['is_valid'] = True\n    return booking_data\ndef main():",
+        "detail": "dicts_dem",
+        "documentation": {}
+    },
+    {
+        "label": "validate",
+        "kind": 2,
+        "importPath": "dicts_dem",
+        "description": "dicts_dem",
+        "peekOfCode": "def validate(booking_data):\n    for field, field_data in booking_data.items():\n        field_data['is_valid'] = True\n    return booking_data\ndef main():\n    booking_data = {\n        'customer_name': {\n            'field_value': None,\n            'prompt': 'Enter a customer name: ',\n            'is_valid': False,",
+        "detail": "dicts_dem",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "dicts_dem",
+        "description": "dicts_dem",
+        "peekOfCode": "def main():\n    booking_data = {\n        'customer_name': {\n            'field_value': None,\n            'prompt': 'Enter a customer name: ',\n            'is_valid': False,\n        },\n        'package_description': {\n            'field_value': None,\n            'prompt': 'Enter a description of the package : ',",
+        "detail": "dicts_dem",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"sample_dict",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "\"\"\"sample_dict = {\n    \"name\": \"Kelly\",\n    \"age\": 25,\n    \"salary\": 8000,\n    \"city\": \"New york\"}\"\"\"\n#new_dict = {}\n#new_dict['name'] = ['kelly']\n#new_dict['salary'] = ['8000']\n#print(new_dict)\n#new_dict.get(name)",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "#new_dict",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "#new_dict = {}\n#new_dict['name'] = ['kelly']\n#new_dict['salary'] = ['8000']\n#print(new_dict)\n#new_dict.get(name)\n#expected output \n#{'name': 'Kelly', 'salary': 8000}\n#https://www.my-courses.net/p/python-dictionary-exercises.html\n#Write a Python program that combines by concatenating these three dictionaries into one.\ndicPC = {\"HP\": 11, \"Acer\": 7, \"Lenovo\": 17, \"Del\": 23}",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "#new_dict['name']",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "#new_dict['name'] = ['kelly']\n#new_dict['salary'] = ['8000']\n#print(new_dict)\n#new_dict.get(name)\n#expected output \n#{'name': 'Kelly', 'salary': 8000}\n#https://www.my-courses.net/p/python-dictionary-exercises.html\n#Write a Python program that combines by concatenating these three dictionaries into one.\ndicPC = {\"HP\": 11, \"Acer\": 7, \"Lenovo\": 17, \"Del\": 23}\ndicPhone = {\"Sumsung\": 22, \"Iphone\": 9, \"Other\": 13}",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "#new_dict['salary']",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "#new_dict['salary'] = ['8000']\n#print(new_dict)\n#new_dict.get(name)\n#expected output \n#{'name': 'Kelly', 'salary': 8000}\n#https://www.my-courses.net/p/python-dictionary-exercises.html\n#Write a Python program that combines by concatenating these three dictionaries into one.\ndicPC = {\"HP\": 11, \"Acer\": 7, \"Lenovo\": 17, \"Del\": 23}\ndicPhone = {\"Sumsung\": 22, \"Iphone\": 9, \"Other\": 13}\ndicTablet = {\"Sumsung\": 15, \"Other\": 13}",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "dicPC",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "dicPC = {\"HP\": 11, \"Acer\": 7, \"Lenovo\": 17, \"Del\": 23}\ndicPhone = {\"Sumsung\": 22, \"Iphone\": 9, \"Other\": 13}\ndicTablet = {\"Sumsung\": 15, \"Other\": 13}\n#automatically making the value associated with the key an empty list \ndd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \nprint(dd)",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "dicPhone",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "dicPhone = {\"Sumsung\": 22, \"Iphone\": 9, \"Other\": 13}\ndicTablet = {\"Sumsung\": 15, \"Other\": 13}\n#automatically making the value associated with the key an empty list \ndd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \nprint(dd)\n\"\"\"dd = defaultdict(list)",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "dicTablet",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "dicTablet = {\"Sumsung\": 15, \"Other\": 13}\n#automatically making the value associated with the key an empty list \ndd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \nprint(dd)\n\"\"\"dd = defaultdict(list)\nfor d in [dicPC, dicPhone, dicTablet]:",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "dd",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "dd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \nprint(dd)\n\"\"\"dd = defaultdict(list)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key].append(value)",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"dd",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "\"\"\"dd = defaultdict(list)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key].append(value)\nprint(dd)\"\"\"\n\"\"\"d4 = {} \nd4.update(dicPC)\nd4.update(dicPhone)\nd4.update(dicTablet)\"\"\"\n#print(d4)",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"d4",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "\"\"\"d4 = {} \nd4.update(dicPC)\nd4.update(dicPhone)\nd4.update(dicTablet)\"\"\"\n#print(d4)\n\"\"\"for key, value in [dicPC, dicTablet, dicPhone]:\n    d4 = {}\n    if key == key: \n        d4['key'] = value + vaklue \"\"\"\n\"\"\"Write a Python program that partitions this dictionary into two sub-dictionaries:",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "students",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "students = {\"student_1\" : 13 , \"student_2\" : 17 , \"student_3\" : 9 , \"student_4\" : 15 , \n\t\t\t \"student_5\" : 8 , \"student_6\" : 14 , \"student_7\" : 16 , \"student_8\" : 12 , \n\t\t\t \"student_9\" : 13 , \"student_10\" : 15 , \"student_11\" : 14 , \"student_112\" : 9 , \n\t\t\t \"student_13\" : 10 , \"student_14\" : 12 , \"student_15\" : 13 , \"student_16\" : 7 ,\n\t\t\t \"student_17\" : 12 , \"student_18\" : 15 , \"student_19\" : 9 , \"student_20\" : 17 ,}\nadmitted = {}\nnon_admitted = {} \nfor student, value in students.items():\n    if value >= 10:\n        admitted[student] = value",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "admitted",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "admitted = {}\nnon_admitted = {} \nfor student, value in students.items():\n    if value >= 10:\n        admitted[student] = value\n    else:\n        non_admitted[student] = value\n#print(admitted)\n#print(non_admitted)\n#why are there random missing variables in the output? ",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "non_admitted",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "non_admitted = {} \nfor student, value in students.items():\n    if value >= 10:\n        admitted[student] = value\n    else:\n        non_admitted[student] = value\n#print(admitted)\n#print(non_admitted)\n#why are there random missing variables in the output? \n#why is the printing all funky when printing out a string and then the values ",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "#d",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "#d = {'l': 1, 'a': 2, 'n': 1, 'g': 2, 'e': 1}\n#user_dict = {}\n#user_input = input(\"Please provide a string \")\n#print(list(user_input))\n#user_input = list(user_input)\n#user_input = user_input.split(\" \")\n#print(user_input)\n\"\"\"for letter in user_input:\n    #print(letter, \"letter\", type(letter))\n    if letter in user_dict:",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "#user_dict",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "#user_dict = {}\n#user_input = input(\"Please provide a string \")\n#print(list(user_input))\n#user_input = list(user_input)\n#user_input = user_input.split(\" \")\n#print(user_input)\n\"\"\"for letter in user_input:\n    #print(letter, \"letter\", type(letter))\n    if letter in user_dict:\n        user_dict[letter] += 1",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "#user_input",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "#user_input = input(\"Please provide a string \")\n#print(list(user_input))\n#user_input = list(user_input)\n#user_input = user_input.split(\" \")\n#print(user_input)\n\"\"\"for letter in user_input:\n    #print(letter, \"letter\", type(letter))\n    if letter in user_dict:\n        user_dict[letter] += 1\n    else:",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "#user_input",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "#user_input = list(user_input)\n#user_input = user_input.split(\" \")\n#print(user_input)\n\"\"\"for letter in user_input:\n    #print(letter, \"letter\", type(letter))\n    if letter in user_dict:\n        user_dict[letter] += 1\n    else:\n        user_dict[letter] = 1\"\"\"\n    #user_dict[letter] = count",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "#user_input",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "#user_input = user_input.split(\" \")\n#print(user_input)\n\"\"\"for letter in user_input:\n    #print(letter, \"letter\", type(letter))\n    if letter in user_dict:\n        user_dict[letter] += 1\n    else:\n        user_dict[letter] = 1\"\"\"\n    #user_dict[letter] = count\n#print(user_dict)",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "multiply",
+        "kind": 2,
+        "importPath": "functions",
+        "description": "functions",
+        "peekOfCode": "def multiply(numbers):\n    value_multiplied = 1 \n    for value in numbers:\n       value_multiplied = value * value_multiplied\n    return value_multiplied\nprint(multiply([1,2,3,8]))",
+        "detail": "functions",
+        "documentation": {}
+    },
+    {
+        "label": "colorful_sentence",
+        "kind": 5,
+        "importPath": "functions",
+        "description": "functions",
+        "peekOfCode": "colorful_sentence = \"Colors bounced around in her head. They mixed and threaded themselves together. Even colors that had no business being together. They were all one, yet distinctly separate at the same time. How was she going to explain this to the others?\"\n\"\"\"def countwords(*word_count):\n    for word in word_count:\n        return word.count()\nprint(countwords(['Colors bounced around in her head. They mixed']))\"\"\"\n\"\"\"def remove_duplicates(sentence):\n    cleandict = {}\n    for word in sentence.split(\" \"):\n        if word in cleandict:\n            cleandict[word] = cleandict[word] + 1",
+        "detail": "functions",
+        "documentation": {}
+    },
+    {
+        "label": "get_input",
+        "kind": 2,
+        "importPath": "lesson_part2",
+        "description": "lesson_part2",
+        "peekOfCode": "def get_input():\n    data = {\n        'account_no': {\n            'prompt': \"Enter the account number: \",\n            'item_value': None},\n        'balance': {\n            'prompt': \"Enter account balance: \",\n            'item_value': None},\n        'customer_credit': {\n            'prompt': \"Enter the customer credit: \",",
+        "detail": "lesson_part2",
+        "documentation": {}
+    },
+    {
+        "label": "validate_account_no",
+        "kind": 2,
+        "importPath": "lesson_part2",
+        "description": "lesson_part2",
+        "peekOfCode": "def validate_account_no(account_number):\n    if len(account_number) < 5:\n        return False\n    return True\ndef validate_balance(balance):\n    if len(balance) < 5:\n        return False\n    return True\ndef validate_customer_credit(customer_credit):\n    if len(customer_credit) < 5:",
+        "detail": "lesson_part2",
+        "documentation": {}
+    },
+    {
+        "label": "validate_balance",
+        "kind": 2,
+        "importPath": "lesson_part2",
+        "description": "lesson_part2",
+        "peekOfCode": "def validate_balance(balance):\n    if len(balance) < 5:\n        return False\n    return True\ndef validate_customer_credit(customer_credit):\n    if len(customer_credit) < 5:\n        return False\n    return True\ndef validate_customer_name(customer_name):\n    if len(customer_name) < 5:",
+        "detail": "lesson_part2",
+        "documentation": {}
+    },
+    {
+        "label": "validate_customer_credit",
+        "kind": 2,
+        "importPath": "lesson_part2",
+        "description": "lesson_part2",
+        "peekOfCode": "def validate_customer_credit(customer_credit):\n    if len(customer_credit) < 5:\n        return False\n    return True\ndef validate_customer_name(customer_name):\n    if len(customer_name) < 5:\n        return False\n    return True\n#unvalidates account no, returns the account_no dictionary \n#adding a new key to the embedded dictionary called is_valid ",
+        "detail": "lesson_part2",
+        "documentation": {}
+    },
+    {
+        "label": "validate_customer_name",
+        "kind": 2,
+        "importPath": "lesson_part2",
+        "description": "lesson_part2",
+        "peekOfCode": "def validate_customer_name(customer_name):\n    if len(customer_name) < 5:\n        return False\n    return True\n#unvalidates account no, returns the account_no dictionary \n#adding a new key to the embedded dictionary called is_valid \n#ammends to the data dictionary is_valid key \n#this is called a decorator with the @ sign. Modifies function \n@pysnooper.snoop()\ndef validate(unvalidated):",
+        "detail": "lesson_part2",
+        "documentation": {}
+    },
+    {
+        "label": "validate",
+        "kind": 2,
+        "importPath": "lesson_part2",
+        "description": "lesson_part2",
+        "peekOfCode": "def validate(unvalidated):\n    unvalidated['account_no']['is_valid'] = False\n    unvalidated['account_no']['validate'] = validate_account_no\n    #creating new key called validate and assigning a value of type function (validate_account_no variable) \n    unvalidated['balance']['is_valid'] = False\n    unvalidated['balance']['validate'] = validate_balance\n    unvalidated['customer_credit']['is_valid'] = False\n    unvalidated['customer_credit']['validate'] = validate_customer_credit\n    unvalidated['customer_name']['is_valid'] = False\n    unvalidated['customer_name']['validate'] = validate_customer_name",
+        "detail": "lesson_part2",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "lesson_part2",
+        "description": "lesson_part2",
+        "peekOfCode": "def main():\n    mydata = get_input()\n    my_valid_data = validate(mydata)\n    print(my_valid_data)  # just to show\n#calling main \n#run main \nif __name__ == \"__main__\":\n    main()",
+        "detail": "lesson_part2",
+        "documentation": {}
+    },
+    {
+        "label": "numbers",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "numbers = list(range(1,13))\n\"\"\"print(numbers[2:4])\"\"\"\n\"\"\"print(numbers[::2])\"\"\"\n\"\"\"print(numbers[::-1])\"\"\"\n#create a new numbers list with every number in numbers to be squared \n#take each square it, append to a new list \n\"\"\"\"squareds = []\nfor number in numbers:\n   squared = number**2\n   squareds.append(squared)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"\"squareds",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "\"\"\"\"squareds = []\nfor number in numbers:\n   squared = number**2\n   squareds.append(squared)\nprint(squareds)\"\"\"\n#list comprehension\n\"\"\"squareds = [squared**2 for squared in numbers]\nprint(squareds)\"\"\"\n#list called named \n\"\"\"names = [\"Andy\", \"Andrew\", \"Jason\", \"Danny\", \"Glen\"]",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"squareds",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "\"\"\"squareds = [squared**2 for squared in numbers]\nprint(squareds)\"\"\"\n#list called named \n\"\"\"names = [\"Andy\", \"Andrew\", \"Jason\", \"Danny\", \"Glen\"]\nnew_names = [name.upper() for name in names if name[0] == \"A\"]\nprint(new_names)\"\"\"\n\"\"\"person = [\"Fred\", 41, \"Green\", 6.4]\nprint(person[3])\"\"\"\n#key must be unique \n#hashing takes unique values and converts to another unique value. ",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"names",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "\"\"\"names = [\"Andy\", \"Andrew\", \"Jason\", \"Danny\", \"Glen\"]\nnew_names = [name.upper() for name in names if name[0] == \"A\"]\nprint(new_names)\"\"\"\n\"\"\"person = [\"Fred\", 41, \"Green\", 6.4]\nprint(person[3])\"\"\"\n#key must be unique \n#hashing takes unique values and converts to another unique value. \n#when you hash a to b you can hash b to a \nperson = {\"name\": \"Fred\", \"age\": 41, \"favorite_color\":\"Green\", \"Weight\": 6.4}\n\"\"\"print(person[\"name\"])\"\"\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "new_names",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "new_names = [name.upper() for name in names if name[0] == \"A\"]\nprint(new_names)\"\"\"\n\"\"\"person = [\"Fred\", 41, \"Green\", 6.4]\nprint(person[3])\"\"\"\n#key must be unique \n#hashing takes unique values and converts to another unique value. \n#when you hash a to b you can hash b to a \nperson = {\"name\": \"Fred\", \"age\": 41, \"favorite_color\":\"Green\", \"Weight\": 6.4}\n\"\"\"print(person[\"name\"])\"\"\"\n#change name value ",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"person",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "\"\"\"person = [\"Fred\", 41, \"Green\", 6.4]\nprint(person[3])\"\"\"\n#key must be unique \n#hashing takes unique values and converts to another unique value. \n#when you hash a to b you can hash b to a \nperson = {\"name\": \"Fred\", \"age\": 41, \"favorite_color\":\"Green\", \"Weight\": 6.4}\n\"\"\"print(person[\"name\"])\"\"\"\n#change name value \n\"\"\"person[\"name\"] = \"Gary\"\nprint(person[\"name\"])\"\"\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "person",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "person = {\"name\": \"Fred\", \"age\": 41, \"favorite_color\":\"Green\", \"Weight\": 6.4}\n\"\"\"print(person[\"name\"])\"\"\"\n#change name value \n\"\"\"person[\"name\"] = \"Gary\"\nprint(person[\"name\"])\"\"\"\n#create a new key value pair if a key doesn't exist \nperson[\"telephone\"] = \"911\"\n#name: iterator. Converts dictionary to list of tuples when you iterate on it \n#unpacks the tuple into key and value \n\"\"\"for key, value in person.items():",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"person[\"name\"]",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "\"\"\"person[\"name\"] = \"Gary\"\nprint(person[\"name\"])\"\"\"\n#create a new key value pair if a key doesn't exist \nperson[\"telephone\"] = \"911\"\n#name: iterator. Converts dictionary to list of tuples when you iterate on it \n#unpacks the tuple into key and value \n\"\"\"for key, value in person.items():\n    #printf converts all variables in double quotes into strings \n    #variable format strings \n    print(f\"{key=} {value=}\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "person[\"telephone\"]",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "person[\"telephone\"] = \"911\"\n#name: iterator. Converts dictionary to list of tuples when you iterate on it \n#unpacks the tuple into key and value \n\"\"\"for key, value in person.items():\n    #printf converts all variables in double quotes into strings \n    #variable format strings \n    print(f\"{key=} {value=}\")\nprint(person.items())\"\"\"\n#list of disctionaries \n#key becomes the value and the value is the dictionary ",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "people",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "people = {\n    \"Fred\": {\"age\": 41, \"favorite_color\":\"Green\", \"Weight\": 6.4},\n    \"Gary\": {\"age\": 32, \"favorite_color\":\"blue\", \"Weight\": 140},\n    \"Tom\": {\"age\": 26, \"favorite_color\":\"yellow\", \"Weight\": 160},\n}\nprint(people[\"Fred\"][\"age\"])\ncolors = {\n    \"green\": {\"name\": \"fred\", \"age\":41 }\n}\n#print fred",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "colors",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "colors = {\n    \"green\": {\"name\": \"fred\", \"age\":41 }\n}\n#print fred\n#print age\n#print fav color\n#print \n#gary \n#name is Fred, name detail is value of the key \n# in second for loop, key is the key inside second dictionary age in this case and value is the value of that key in name details which is the dictionary valiue associated with the fred key",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_average",
+        "kind": 2,
+        "importPath": "nov21",
+        "description": "nov21",
+        "peekOfCode": "def calculate_average(values):\n    values = sum(values)/len(values)\n    values = int(values)\n    return values \nprint(calculate_average([1,2,25,60,100,125]))\"\"\"\n\"\"\"average = []\nfor name, size in peoples_shoes.items():\n    average.append(size)\nprint(average)\nprint(sum(average)/len(average))",
+        "detail": "nov21",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"peoples_shoes",
+        "kind": 5,
+        "importPath": "nov21",
+        "description": "nov21",
+        "peekOfCode": "\"\"\"peoples_shoes = {\n    \"Fred\": 8,\n    \"Dan\": 10.5,\n    \"Christina\": 7.5,\n    \"Thomas\": 9.5\n}\ndef calculate_average(values):\n    values = sum(values)/len(values)\n    values = int(values)\n    return values ",
+        "detail": "nov21",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"average",
+        "kind": 5,
+        "importPath": "nov21",
+        "description": "nov21",
+        "peekOfCode": "\"\"\"average = []\nfor name, size in peoples_shoes.items():\n    average.append(size)\nprint(average)\nprint(sum(average)/len(average))\n\"\"\"\n#average[8,10.5]\n#def average(x)\n#variable called sentence \nsentence = \"The dog jumps over the fox in the river bed at night during a storm. The dog was named Evan. The storm was a level 5 hurricane\"",
+        "detail": "nov21",
+        "documentation": {}
+    },
+    {
+        "label": "sentence",
+        "kind": 5,
+        "importPath": "nov21",
+        "description": "nov21",
+        "peekOfCode": "sentence = \"The dog jumps over the fox in the river bed at night during a storm. The dog was named Evan. The storm was a level 5 hurricane\"\n#create dictionary that will have key the word and the value is the number of times it occurs in the sentence \nsentence = sentence.lower()\nwords = sentence.split(\" \")\n#counter = 0 \n#this create a list of words \nword_count = {}\n\"\"\"while counter < len(words):\n    for word in words:\n    #word_count_list = words.count(word)",
+        "detail": "nov21",
+        "documentation": {}
+    },
+    {
+        "label": "sentence",
+        "kind": 5,
+        "importPath": "nov21",
+        "description": "nov21",
+        "peekOfCode": "sentence = sentence.lower()\nwords = sentence.split(\" \")\n#counter = 0 \n#this create a list of words \nword_count = {}\n\"\"\"while counter < len(words):\n    for word in words:\n    #word_count_list = words.count(word)\n        word_count[\"word\"] = words.count(word)\n    counter += 1",
+        "detail": "nov21",
+        "documentation": {}
+    },
+    {
+        "label": "words",
+        "kind": 5,
+        "importPath": "nov21",
+        "description": "nov21",
+        "peekOfCode": "words = sentence.split(\" \")\n#counter = 0 \n#this create a list of words \nword_count = {}\n\"\"\"while counter < len(words):\n    for word in words:\n    #word_count_list = words.count(word)\n        word_count[\"word\"] = words.count(word)\n    counter += 1\nprint(word_count)\"\"\"",
+        "detail": "nov21",
+        "documentation": {}
+    },
+    {
+        "label": "#counter",
+        "kind": 5,
+        "importPath": "nov21",
+        "description": "nov21",
+        "peekOfCode": "#counter = 0 \n#this create a list of words \nword_count = {}\n\"\"\"while counter < len(words):\n    for word in words:\n    #word_count_list = words.count(word)\n        word_count[\"word\"] = words.count(word)\n    counter += 1\nprint(word_count)\"\"\"\nfor word in words: ",
+        "detail": "nov21",
+        "documentation": {}
+    },
+    {
+        "label": "word_count",
+        "kind": 5,
+        "importPath": "nov21",
+        "description": "nov21",
+        "peekOfCode": "word_count = {}\n\"\"\"while counter < len(words):\n    for word in words:\n    #word_count_list = words.count(word)\n        word_count[\"word\"] = words.count(word)\n    counter += 1\nprint(word_count)\"\"\"\nfor word in words: \n    word_count[word] = words.count(word)\nprint(word_count)",
+        "detail": "nov21",
+        "documentation": {}
+    },
+    {
+        "label": "average_age",
+        "kind": 2,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "def average_age(people):\n    persons_age = 0\n    number_of_people = 0\n    for person, age in people.items():\n        persons_age += age\n        number_of_people += 1 \n    average = persons_age / number_of_people\n    return average\n\"\"\"\n#print(average_age(people))",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "squared",
+        "kind": 2,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "def squared(): \n    count = 0\n    squares = {}\n    for i in range(1,200):\n        count += 1\n        squared = i * i\n        squares[count] = squared\n    return squares\nprint(squared())\"\"\"\n#2. Convert two lists, one with 10 letters, one with 10 numbers to a dictionary. The letters are keys, the numbers values.",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "convert_to_dict",
+        "kind": 2,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "def convert_to_dict():\n    for letter in letters: \n        for number in numbers: #this can't be a nested loop \n            letter_numbers[letter] = number\n            numbers.remove(number)\n            break \n    return letter_numbers\n#print(convert_to_dict())\n#Exercise 5: Create a dictionary by extracting the keys from a given dictionary\nsample_dict = {",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "list_to_dict",
+        "kind": 2,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "def list_to_dict(letters,numbers): \n    letter_numbers = {} \n    for letter in letters: \n        letter_numbers['letter']\n    for number in numbers: \n        letter_numbers['letter'] = number \n    return letter_numbers\nprint(list_to_dict(letters, numbers))\"\"\"\n#3. Create a dictionary that stores the squares of all numbers from 1 to 199.\n\"\"\"def store_squares():",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"people",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "\"\"\"people = {\n    'dima': 28,\n    'andrew': 27,\n    'tim': 19,\n    'costner': 72,\n}\"\"\"\nsentence = \"This is a long sentence called the fox jumps over a horse in the canal while snowboarding. This doesn't make sense, but this is a snowboarding exercise.\"\n#1. Write a program that uses a dictionary to count the number of times a word appears in a long string.\n\"\"\"def count_words(sentence):\n    sentence_dict = {}",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "sentence",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "sentence = \"This is a long sentence called the fox jumps over a horse in the canal while snowboarding. This doesn't make sense, but this is a snowboarding exercise.\"\n#1. Write a program that uses a dictionary to count the number of times a word appears in a long string.\n\"\"\"def count_words(sentence):\n    sentence_dict = {}\n    count = 0 \n    words = sentence.split(\" \")\n    for word in words:\n        if word in sentence_dict:\n            sentence_dict[word] += 1 \n        else:",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "people",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "people = {\n    'dan': 32,\n    'dima': 44,\n    'johnny': 67,\n    'gugu': 92,\n}\n#Write a program that takes a dictionary that contains peoples names as keys, and their age as values. \n#Calculate the person with the lowest age, highest age, calculate the average age, and then print each persons name and age on separate lines. \n#Print the minimum, maximum and average ages below the list.\n\"\"\"def lowest_age(people):",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"persons_age",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "\"\"\"persons_age = 0\nnumber_of_people = 0\"\"\"\n\"\"\"def average_age(people):\n    persons_age = 0 \n    number_of_people = 0\n    for _, age in people.items():\n        persons_age += age\n        number_of_people += 1\n    average = persons_age / number_of_people\n    return average",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "number_of_people",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "number_of_people = 0\"\"\"\n\"\"\"def average_age(people):\n    persons_age = 0 \n    number_of_people = 0\n    for _, age in people.items():\n        persons_age += age\n        number_of_people += 1\n    average = persons_age / number_of_people\n    return average\nprint(average_age(people))\"\"\"",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "letter_numbers",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "letter_numbers = {} \nletters = ['a','b','c','d','f','t','g','h','g','f']\nnumbers = [12,25,35,46,55,61,71,84,59,610]\n\"\"\"def convert_to_dict():\n    for letter in letters: \n        letter_numbers[letter] = None\n    for number in numbers: #this can't be a nested loop \n        letter_numbers[letter] = number\n    return letter_numbers \nprint(convert_to_dict())",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "letters",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "letters = ['a','b','c','d','f','t','g','h','g','f']\nnumbers = [12,25,35,46,55,61,71,84,59,610]\n\"\"\"def convert_to_dict():\n    for letter in letters: \n        letter_numbers[letter] = None\n    for number in numbers: #this can't be a nested loop \n        letter_numbers[letter] = number\n    return letter_numbers \nprint(convert_to_dict())\n\"\"\"",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "numbers",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "numbers = [12,25,35,46,55,61,71,84,59,610]\n\"\"\"def convert_to_dict():\n    for letter in letters: \n        letter_numbers[letter] = None\n    for number in numbers: #this can't be a nested loop \n        letter_numbers[letter] = number\n    return letter_numbers \nprint(convert_to_dict())\n\"\"\"\ndef convert_to_dict():",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "sample_dict",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "sample_dict = {\n    \"name\": \"Kelly\",\n    \"age\": 25,\n    \"salary\": 8000,\n    \"city\": \"New york\"}\n#2. Convert two lists, one with 10 letters, one with 10 numbers to a dictionary. The letters are keys, the numbers values.\n\"\"\"letter_numbers = {} \nletters = ['a','b','c','d','f','t','g','h','g','f']\nnumbers = [12,25,35,46,55,61,71,84,59,610]\ndef list_to_dict(letters,numbers): ",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"letter_numbers",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "\"\"\"letter_numbers = {} \nletters = ['a','b','c','d','f','t','g','h','g','f']\nnumbers = [12,25,35,46,55,61,71,84,59,610]\ndef list_to_dict(letters,numbers): \n    letter_numbers = {} \n    for letter in letters: \n        letter_numbers['letter']\n    for number in numbers: \n        letter_numbers['letter'] = number \n    return letter_numbers",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "letters",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "letters = ['a','b','c','d','f','t','g','h','g','f']\nnumbers = [12,25,35,46,55,61,71,84,59,610]\ndef list_to_dict(letters,numbers): \n    letter_numbers = {} \n    for letter in letters: \n        letter_numbers['letter']\n    for number in numbers: \n        letter_numbers['letter'] = number \n    return letter_numbers\nprint(list_to_dict(letters, numbers))\"\"\"",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "numbers",
+        "kind": 5,
+        "importPath": "peoplecalculator",
+        "description": "peoplecalculator",
+        "peekOfCode": "numbers = [12,25,35,46,55,61,71,84,59,610]\ndef list_to_dict(letters,numbers): \n    letter_numbers = {} \n    for letter in letters: \n        letter_numbers['letter']\n    for number in numbers: \n        letter_numbers['letter'] = number \n    return letter_numbers\nprint(list_to_dict(letters, numbers))\"\"\"\n#3. Create a dictionary that stores the squares of all numbers from 1 to 199.",
+        "detail": "peoplecalculator",
+        "documentation": {}
+    },
+    {
+        "label": "Person",
+        "kind": 6,
+        "importPath": "pets",
+        "description": "pets",
+        "peekOfCode": "class Person(Model):\n    name = CharField()\n    # name = PrimaryKeyField...\n    birthday = DateField()\n    class Meta:\n        database = db  # This model uses the \"people.db\" database.\nclass Pet(Model):\n    owner = ForeignKeyField(Person, backref='pets')\n    name = CharField()\n    animal_type = CharField()",
+        "detail": "pets",
+        "documentation": {}
+    },
+    {
+        "label": "Pet",
+        "kind": 6,
+        "importPath": "pets",
+        "description": "pets",
+        "peekOfCode": "class Pet(Model):\n    owner = ForeignKeyField(Person, backref='pets')\n    name = CharField()\n    animal_type = CharField()\n    class Meta:\n        database = db  # this model uses the \"people.db\" database\ndef main():\n    db.connect()\n    db.create_tables([Person, Pet])\n    uncle_bob = Person(name='Bob', birthday=date(1960, 1, 15))",
+        "detail": "pets",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "pets",
+        "description": "pets",
+        "peekOfCode": "def main():\n    db.connect()\n    db.create_tables([Person, Pet])\n    uncle_bob = Person(name='Bob', birthday=date(1960, 1, 15))\n    uncle_bob.save()  # bob is now stored in the database\n    # alt\n    grandma = Person.create(name='Grandma', birthday=date(1935, 3, 1))\n    herb = Person.create(name='Herb', birthday=date(1950, 5, 5))\n    grandma.save()\n    herb.save()",
+        "detail": "pets",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "pets",
+        "description": "pets",
+        "peekOfCode": "db = SqliteDatabase('people.db')\nclass Person(Model):\n    name = CharField()\n    # name = PrimaryKeyField...\n    birthday = DateField()\n    class Meta:\n        database = db  # This model uses the \"people.db\" database.\nclass Pet(Model):\n    owner = ForeignKeyField(Person, backref='pets')\n    name = CharField()",
+        "detail": "pets",
+        "documentation": {}
+    },
+    {
+        "label": "dict",
+        "kind": 5,
+        "importPath": "plato",
+        "description": "plato",
+        "peekOfCode": "dict = {\"name\": \"Plato\", \"country\": \"Ancient Greece\", \"born\": -427, \"teacher\": \"Socrates\", \"student\": \"Aristotle\"}\n#Type your answer below.\ndict['born'] = 428 \n#print(dict[\"born\"])\n\"\"\"Dictionaries can have nested data too. Also, you can add a new key to a dictionary as they are mutable (changeable). Try to add the key \"work\" to dict with values shown below.\n\"work\": [\"Apology\", \"Phaedo\", \"Republic\", \"Symposium\"]\"\"\"\ndict={\"name\": \"Plato\", \"country\": \"Ancient Greece\", \"born\": -427, \"teacher\": \"Socrates\", \"student\": \"Aristotle\"}\ndict['work'] = [\"Apology\", \"Phaedo\", \"Republic\", \"Symposium\"]\n#print(dict)\n\"\"\".get() method can be used just to get the value of a key. But it has more tricks up its sleeve.",
+        "detail": "plato",
+        "documentation": {}
+    },
+    {
+        "label": "dict['born']",
+        "kind": 5,
+        "importPath": "plato",
+        "description": "plato",
+        "peekOfCode": "dict['born'] = 428 \n#print(dict[\"born\"])\n\"\"\"Dictionaries can have nested data too. Also, you can add a new key to a dictionary as they are mutable (changeable). Try to add the key \"work\" to dict with values shown below.\n\"work\": [\"Apology\", \"Phaedo\", \"Republic\", \"Symposium\"]\"\"\"\ndict={\"name\": \"Plato\", \"country\": \"Ancient Greece\", \"born\": -427, \"teacher\": \"Socrates\", \"student\": \"Aristotle\"}\ndict['work'] = [\"Apology\", \"Phaedo\", \"Republic\", \"Symposium\"]\n#print(dict)\n\"\"\".get() method can be used just to get the value of a key. But it has more tricks up its sleeve.\nTry to look for key: \"son's age\" and if nothing comes up make the .get() return \"2\".",
+        "detail": "plato",
+        "documentation": {}
+    },
+    {
+        "label": "dict['work']",
+        "kind": 5,
+        "importPath": "plato",
+        "description": "plato",
+        "peekOfCode": "dict['work'] = [\"Apology\", \"Phaedo\", \"Republic\", \"Symposium\"]\n#print(dict)\n\"\"\".get() method can be used just to get the value of a key. But it has more tricks up its sleeve.\nTry to look for key: \"son's age\" and if nothing comes up make the .get() return \"2\".\n\"\"\"\ndict={\"son's name\": \"Lucas\", \"son's eye color\": \"green\", \"son's height\": 32, \"son's weight\": 25}\n#Type your answer here.\nans_1= dict.get('2')\nif not (ans_1 > 1):\n    print(ans_1)",
+        "detail": "plato",
+        "documentation": {}
+    },
+    {
+        "label": "statuses",
+        "kind": 5,
+        "importPath": "practice",
+        "description": "practice",
+        "peekOfCode": "statuses = {\n    \"Alice\": \"online\",\n    \"Bob\": \"offline\",\n    \"Eve\": \"online\",\n}\nIn this case, the number of people online is 2.\nWrite a function named online_count that takes one parameter. The parameter is a dictionary that maps from strings of names to the string \"online\" or \"offline\", as seen above.\nYour function should return the number of people who are online.\nChallenge\nType check",
+        "detail": "practice",
+        "documentation": {}
+    }
+]
