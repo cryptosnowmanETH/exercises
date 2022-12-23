@@ -134,6 +134,15 @@
         "documentation": {}
     },
     {
+        "label": "learning",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "learning",
+        "description": "learning",
+        "detail": "learning",
+        "documentation": {}
+    },
+    {
         "label": "BaseModel",
         "kind": 6,
         "importPath": "venv.bin.pwiz",
@@ -804,7 +813,7 @@
         "kind": 5,
         "importPath": "exercises",
         "description": "exercises",
-        "peekOfCode": "dicPC = {\"HP\": 11, \"Acer\": 7, \"Lenovo\": 17, \"Del\": 23}\ndicPhone = {\"Sumsung\": 22, \"Iphone\": 9, \"Other\": 13}\ndicTablet = {\"Sumsung\": 15, \"Other\": 13}\n#automatically making the value associated with the key an empty list \ndd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \nprint(dd)",
+        "peekOfCode": "dicPC = {\"HP\": 11, \"Acer\": 7, \"Lenovo\": 17, \"Del\": 23}\ndicPhone = {\"Sumsung\": 22, \"Iphone\": 9, \"Other\": 13}\ndicTablet = {\"Sumsung\": 15, \"Other\": 13}\n#automatically making the value associated with the key an empty list \ndd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \n#print(dd)",
         "detail": "exercises",
         "documentation": {}
     },
@@ -813,7 +822,7 @@
         "kind": 5,
         "importPath": "exercises",
         "description": "exercises",
-        "peekOfCode": "dicPhone = {\"Sumsung\": 22, \"Iphone\": 9, \"Other\": 13}\ndicTablet = {\"Sumsung\": 15, \"Other\": 13}\n#automatically making the value associated with the key an empty list \ndd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \nprint(dd)\n\"\"\"dd = defaultdict(list)",
+        "peekOfCode": "dicPhone = {\"Sumsung\": 22, \"Iphone\": 9, \"Other\": 13}\ndicTablet = {\"Sumsung\": 15, \"Other\": 13}\n#automatically making the value associated with the key an empty list \ndd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \n#print(dd)\n\"\"\"dd = defaultdict(list)",
         "detail": "exercises",
         "documentation": {}
     },
@@ -822,7 +831,7 @@
         "kind": 5,
         "importPath": "exercises",
         "description": "exercises",
-        "peekOfCode": "dicTablet = {\"Sumsung\": 15, \"Other\": 13}\n#automatically making the value associated with the key an empty list \ndd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \nprint(dd)\n\"\"\"dd = defaultdict(list)\nfor d in [dicPC, dicPhone, dicTablet]:",
+        "peekOfCode": "dicTablet = {\"Sumsung\": 15, \"Other\": 13}\n#automatically making the value associated with the key an empty list \ndd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \n#print(dd)\n\"\"\"dd = defaultdict(list)\nfor d in [dicPC, dicPhone, dicTablet]:",
         "detail": "exercises",
         "documentation": {}
     },
@@ -831,7 +840,7 @@
         "kind": 5,
         "importPath": "exercises",
         "description": "exercises",
-        "peekOfCode": "dd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \nprint(dd)\n\"\"\"dd = defaultdict(list)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key].append(value)",
+        "peekOfCode": "dd = defaultdict(int)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key] += value\n        #value with [] is \n#print(dd)\n\"\"\"dd = defaultdict(list)\nfor d in [dicPC, dicPhone, dicTablet]:\n    for key, value in d.items(): \n        dd[key].append(value)",
         "detail": "exercises",
         "documentation": {}
     },
@@ -926,6 +935,87 @@
         "documentation": {}
     },
     {
+        "label": "birthdays",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "birthdays = {\n    \"Dima\": \"May 11th, 1995\",\n    \"Slava\": \"March 15th, 1964\",\n    \"Marina\": \"September 27th, 1963\",\n}\n#user_input = input(\"Who's birthday do you want to look up? Pick from Dima, Slava, or Marina \")\n#print(birthdays[user_input])\n#Given a dictionary in Python, write a Python program to find the sum of all items in the dictionary.\ntoys = {\n    'batman': 100,",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "#user_input",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "#user_input = input(\"Who's birthday do you want to look up? Pick from Dima, Slava, or Marina \")\n#print(birthdays[user_input])\n#Given a dictionary in Python, write a Python program to find the sum of all items in the dictionary.\ntoys = {\n    'batman': 100,\n    'spiderman': 400,\n    'joker':700,\n}\n\"\"\"total_inventory = 0\nfor character, inventory_count in toys.items():",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "toys",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "toys = {\n    'batman': 100,\n    'spiderman': 400,\n    'joker':700,\n}\n\"\"\"total_inventory = 0\nfor character, inventory_count in toys.items():\n    if total_inventory == 0:\n        total_inventory += inventory_count\n    else: ",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"total_inventory",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "\"\"\"total_inventory = 0\nfor character, inventory_count in toys.items():\n    if total_inventory == 0:\n        total_inventory += inventory_count\n    else: \n        total_inventory \"\"\"\n#print(total_inventory)\n\"\"\"total_inventory = 0\nfor inventory_count in toys.values():\n    total_inventory += inventory_count",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"total_inventory",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "\"\"\"total_inventory = 0\nfor inventory_count in toys.values():\n    total_inventory += inventory_count\nprint(total_inventory)\"\"\"\n\"\"\"total_sum = sum(toys.values()) \nprint(total_sum)\"\"\"\n#https://www.practicepython.org/exercise/2014/02/15/03-list-less-than-ten.html\n\"\"\"write a program that prints out all the elements of the list that are less than 5.\nExtras:\nInstead of printing the elements one by one, make a new list that has all the elements ",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"total_sum",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "\"\"\"total_sum = sum(toys.values()) \nprint(total_sum)\"\"\"\n#https://www.practicepython.org/exercise/2014/02/15/03-list-less-than-ten.html\n\"\"\"write a program that prints out all the elements of the list that are less than 5.\nExtras:\nInstead of printing the elements one by one, make a new list that has all the elements \nless than 5 from this list in it and print out this new list.\nWrite this in one line of Python.\nAsk the user for a number and return a list that contains only elements \nfrom the original list a that are smaller than that number given by the user.\"\"\"",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "\"\"\"user_answer",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "\"\"\"user_answer = int(input(\"Choose a number, any number under 100 \"))\na = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]\na_list = []\nfor number in a:\n    if number < user_answer:\n        a_list.append(number)\nprint(a_list)\"\"\"\n#password generator",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "a",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]\na_list = []\nfor number in a:\n    if number < user_answer:\n        a_list.append(number)\nprint(a_list)\"\"\"\n#password generator",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "a_list",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "a_list = []\nfor number in a:\n    if number < user_answer:\n        a_list.append(number)\nprint(a_list)\"\"\"\n#password generator",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
         "label": "multiply",
         "kind": 2,
         "importPath": "functions",
@@ -941,6 +1031,15 @@
         "description": "functions",
         "peekOfCode": "colorful_sentence = \"Colors bounced around in her head. They mixed and threaded themselves together. Even colors that had no business being together. They were all one, yet distinctly separate at the same time. How was she going to explain this to the others?\"\n\"\"\"def countwords(*word_count):\n    for word in word_count:\n        return word.count()\nprint(countwords(['Colors bounced around in her head. They mixed']))\"\"\"\n\"\"\"def remove_duplicates(sentence):\n    cleandict = {}\n    for word in sentence.split(\" \"):\n        if word in cleandict:\n            cleandict[word] = cleandict[word] + 1",
         "detail": "functions",
+        "documentation": {}
+    },
+    {
+        "label": "addup",
+        "kind": 2,
+        "importPath": "learning",
+        "description": "learning",
+        "peekOfCode": "def addup(x,y):\n    return x+y",
+        "detail": "learning",
         "documentation": {}
     },
     {
@@ -1391,6 +1490,24 @@
         "description": "practice",
         "peekOfCode": "statuses = {\n    \"Alice\": \"online\",\n    \"Bob\": \"offline\",\n    \"Eve\": \"online\",\n}\nIn this case, the number of people online is 2.\nWrite a function named online_count that takes one parameter. The parameter is a dictionary that maps from strings of names to the string \"online\" or \"offline\", as seen above.\nYour function should return the number of people who are online.\nChallenge\nType check",
         "detail": "practice",
+        "documentation": {}
+    },
+    {
+        "label": "test_addup",
+        "kind": 2,
+        "importPath": "test_learning",
+        "description": "test_learning",
+        "peekOfCode": "def test_addup():\n    assert learning.addup(4,3) == 7\ndef test_subtract():\n    assert subtract(3,7) == -4",
+        "detail": "test_learning",
+        "documentation": {}
+    },
+    {
+        "label": "test_subtract",
+        "kind": 2,
+        "importPath": "test_learning",
+        "description": "test_learning",
+        "peekOfCode": "def test_subtract():\n    assert subtract(3,7) == -4",
+        "detail": "test_learning",
         "documentation": {}
     }
 ]
