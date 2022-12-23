@@ -134,6 +134,15 @@
         "documentation": {}
     },
     {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
         "label": "learning",
         "kind": 6,
         "isExtraImport": true,
@@ -1274,6 +1283,33 @@
         "description": "nov21",
         "peekOfCode": "word_count = {}\n\"\"\"while counter < len(words):\n    for word in words:\n    #word_count_list = words.count(word)\n        word_count[\"word\"] = words.count(word)\n    counter += 1\nprint(word_count)\"\"\"\nfor word in words: \n    word_count[word] = words.count(word)\nprint(word_count)",
         "detail": "nov21",
+        "documentation": {}
+    },
+    {
+        "label": "password_generator",
+        "kind": 2,
+        "importPath": "passwordgenerator",
+        "description": "passwordgenerator",
+        "peekOfCode": "def password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n    password_length = 0\n    if password_strength == \"Weak\":\n        password_length = 6\n    elif password_strength == \"Medium\":\n        password_length = 10\n    else:\n        password_length = 15\n    sample = random.sample(\"abcdetfghijk1mnopqrstuvwxyz1234567890!@#$%^&*()\", password_length)",
+        "detail": "passwordgenerator",
+        "documentation": {}
+    },
+    {
+        "label": "randomthing",
+        "kind": 5,
+        "importPath": "passwordgenerator",
+        "description": "passwordgenerator",
+        "peekOfCode": "randomthing = random.seed(a=None, version=2)\n#print(randomthing)\n#shuffle = random.shuffle(1[1,2])\n#print(shuffle)\ndef password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n    password_length = 0\n    if password_strength == \"Weak\":\n        password_length = 6\n    elif password_strength == \"Medium\":",
+        "detail": "passwordgenerator",
+        "documentation": {}
+    },
+    {
+        "label": "#shuffle",
+        "kind": 5,
+        "importPath": "passwordgenerator",
+        "description": "passwordgenerator",
+        "peekOfCode": "#shuffle = random.shuffle(1[1,2])\n#print(shuffle)\ndef password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n    password_length = 0\n    if password_strength == \"Weak\":\n        password_length = 6\n    elif password_strength == \"Medium\":\n        password_length = 10\n    else:",
+        "detail": "passwordgenerator",
         "documentation": {}
     },
     {
