@@ -188,3 +188,64 @@ print(a_list)"""
 
 #password generator 
 
+
+"""Example 1: Displaying the Keys in sorted order
+In this example, we are trying to sort the dictionary by keys and values in Python. 
+Here, iterkeys() returns an iterator over the dictionary’s keys."""
+
+"""Here are the major tasks that are needed to be performed sort a dictionary by value and keys in Python.
+
+Create a dictionary and display its list-keys alphabetically.
+Display both the keys and values sorted in alphabetical order by the key.
+Same as part (ii), but sorted in alphabetical order by the value."""
+
+
+"""def key_iterator():
+    key_value = {}
+    
+    key_value[2] = '56'
+    key_value[1] = '2'
+    key_value[4] = '12'
+    key_value[5] = '24'
+    key_value[6] = '18'
+    key_value[3] = '323'
+    
+    for key in sorted(key_value.keys()):
+        return print(key)
+
+print(key_iterator())"""
+
+def key_iterator():
+    key_value = {}
+    
+    key_value[2] = '56'
+    key_value[1] = '2'
+    key_value[4] = '12'
+    key_value[5] = '24'
+    key_value[6] = '18'
+    key_value[3] = '323'
+
+    key_list = []
+    for key in sorted(key_value.keys()):
+        key_list.append(key)
+    return key_list
+    
+    #list comprehension. Square brackets creates a list. 2nd key gets the keys from the sorted list. 1st key appends it into a new list. New list is called nothing. It's anonyous list
+    
+    
+    #return [key for key in sorted(key_value.keys()) if key in (1,5,3)]
+
+#this assigns the value from key_iterator (which is the aonymous list) and assigns this list to fred 
+fred = key_iterator()
+
+print(key_iterator())
+"""def main():
+    # function calling
+    key_iterator()
+ 
+ 
+# Main function calling
+if __name__ == "__main__":
+    main()"""
+
+

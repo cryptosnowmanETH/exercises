@@ -117,6 +117,23 @@
         "documentation": {}
     },
     {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
         "label": "defaultdict",
         "importPath": "collections",
         "description": "collections",
@@ -629,6 +646,42 @@
         "documentation": {}
     },
     {
+        "label": "Vehicle",
+        "kind": 6,
+        "importPath": "classes",
+        "description": "classes",
+        "peekOfCode": "class Vehicle:\n    #this is a member function. any variable that is an instance of a vehicle class can now acceess the vehicle classes member functions\n    #self is the name space of the instance \n    # \"dunders\" __init__, these are executed without being called by the programmer \n    #init is a initializer, it initializes variables with values \n    # a constructer builds and initializes instances of classes \n    wheels = 4 #only declare class level variables in cases where every function will have the same variable value \n    def __init__(self,make,color):\n        self.make = make \n        self.color = color",
+        "detail": "classes",
+        "documentation": {}
+    },
+    {
+        "label": "my_new_car",
+        "kind": 5,
+        "importPath": "classes",
+        "description": "classes",
+        "peekOfCode": "my_new_car = Vehicle.build_four_wheel_drive(tools, build)\n#to use the class \n#ford is actually a dict type. ford variable is a type of vehicle. Ford is an instance of the vehicle class.\n#this is called \"instantiating a vehicle\"\ncar1 = Vehicle('ford','red')\n#print(car1.make)\n#print(car1.color)\n#calling the ford instances sound_horn function \n#car1.sound_horn()\n#each instance can store different data ",
+        "detail": "classes",
+        "documentation": {}
+    },
+    {
+        "label": "car1",
+        "kind": 5,
+        "importPath": "classes",
+        "description": "classes",
+        "peekOfCode": "car1 = Vehicle('ford','red')\n#print(car1.make)\n#print(car1.color)\n#calling the ford instances sound_horn function \n#car1.sound_horn()\n#each instance can store different data \ncar2 = Vehicle('bmw','black')\ncar2.brake()",
+        "detail": "classes",
+        "documentation": {}
+    },
+    {
+        "label": "car2",
+        "kind": 5,
+        "importPath": "classes",
+        "description": "classes",
+        "peekOfCode": "car2 = Vehicle('bmw','black')\ncar2.brake()",
+        "detail": "classes",
+        "documentation": {}
+    },
+    {
         "label": "addup",
         "kind": 2,
         "importPath": "creation",
@@ -755,6 +808,24 @@
         "documentation": {}
     },
     {
+        "label": "page",
+        "kind": 5,
+        "importPath": "decode",
+        "description": "decode",
+        "peekOfCode": "page = requests.get(\"https://www.nytimes.com/\")\n#print(page.content)\nfrom bs4 import BeautifulSoup\nsoup = BeautifulSoup(page.content, \"html.parser\")\n#print(soup.prettify())\n#print(soup.find_all('h3')[5].get_text())\nprint(soup.find_all(class_='indicate-hover'))",
+        "detail": "decode",
+        "documentation": {}
+    },
+    {
+        "label": "soup",
+        "kind": 5,
+        "importPath": "decode",
+        "description": "decode",
+        "peekOfCode": "soup = BeautifulSoup(page.content, \"html.parser\")\n#print(soup.prettify())\n#print(soup.find_all('h3')[5].get_text())\nprint(soup.find_all(class_='indicate-hover'))",
+        "detail": "decode",
+        "documentation": {}
+    },
+    {
         "label": "get_input",
         "kind": 2,
         "importPath": "dicts_dem",
@@ -779,6 +850,15 @@
         "description": "dicts_dem",
         "peekOfCode": "def main():\n    booking_data = {\n        'customer_name': {\n            'field_value': None,\n            'prompt': 'Enter a customer name: ',\n            'is_valid': False,\n        },\n        'package_description': {\n            'field_value': None,\n            'prompt': 'Enter a description of the package : ',",
         "detail": "dicts_dem",
+        "documentation": {}
+    },
+    {
+        "label": "key_iterator",
+        "kind": 2,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "def key_iterator():\n    key_value = {}\n    key_value[2] = '56'\n    key_value[1] = '2'\n    key_value[4] = '12'\n    key_value[5] = '24'\n    key_value[6] = '18'\n    key_value[3] = '323'\n    key_list = []\n    for key in sorted(key_value.keys()):",
+        "detail": "exercises",
         "documentation": {}
     },
     {
@@ -1002,7 +1082,7 @@
         "kind": 5,
         "importPath": "exercises",
         "description": "exercises",
-        "peekOfCode": "\"\"\"user_answer = int(input(\"Choose a number, any number under 100 \"))\na = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]\na_list = []\nfor number in a:\n    if number < user_answer:\n        a_list.append(number)\nprint(a_list)\"\"\"\n#password generator",
+        "peekOfCode": "\"\"\"user_answer = int(input(\"Choose a number, any number under 100 \"))\na = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]\na_list = []\nfor number in a:\n    if number < user_answer:\n        a_list.append(number)\nprint(a_list)\"\"\"\n#password generator \n\"\"\"Example 1: Displaying the Keys in sorted order\nIn this example, we are trying to sort the dictionary by keys and values in Python. ",
         "detail": "exercises",
         "documentation": {}
     },
@@ -1011,7 +1091,7 @@
         "kind": 5,
         "importPath": "exercises",
         "description": "exercises",
-        "peekOfCode": "a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]\na_list = []\nfor number in a:\n    if number < user_answer:\n        a_list.append(number)\nprint(a_list)\"\"\"\n#password generator",
+        "peekOfCode": "a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]\na_list = []\nfor number in a:\n    if number < user_answer:\n        a_list.append(number)\nprint(a_list)\"\"\"\n#password generator \n\"\"\"Example 1: Displaying the Keys in sorted order\nIn this example, we are trying to sort the dictionary by keys and values in Python. \nHere, iterkeys() returns an iterator over the dictionary’s keys.\"\"\"",
         "detail": "exercises",
         "documentation": {}
     },
@@ -1020,7 +1100,16 @@
         "kind": 5,
         "importPath": "exercises",
         "description": "exercises",
-        "peekOfCode": "a_list = []\nfor number in a:\n    if number < user_answer:\n        a_list.append(number)\nprint(a_list)\"\"\"\n#password generator",
+        "peekOfCode": "a_list = []\nfor number in a:\n    if number < user_answer:\n        a_list.append(number)\nprint(a_list)\"\"\"\n#password generator \n\"\"\"Example 1: Displaying the Keys in sorted order\nIn this example, we are trying to sort the dictionary by keys and values in Python. \nHere, iterkeys() returns an iterator over the dictionary’s keys.\"\"\"\n\"\"\"Here are the major tasks that are needed to be performed sort a dictionary by value and keys in Python.",
+        "detail": "exercises",
+        "documentation": {}
+    },
+    {
+        "label": "fred",
+        "kind": 5,
+        "importPath": "exercises",
+        "description": "exercises",
+        "peekOfCode": "fred = key_iterator()\nprint(key_iterator())\n\"\"\"def main():\n    # function calling\n    key_iterator()\n# Main function calling\nif __name__ == \"__main__\":\n    main()\"\"\"",
         "detail": "exercises",
         "documentation": {}
     },
@@ -1290,7 +1379,16 @@
         "kind": 2,
         "importPath": "passwordgenerator",
         "description": "passwordgenerator",
-        "peekOfCode": "def password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n    password_length = 0\n    if password_strength == \"Weak\":\n        password_length = 6\n    elif password_strength == \"Medium\":\n        password_length = 10\n    else:\n        password_length = 15\n    sample = random.sample(\"abcdetfghijk1mnopqrstuvwxyz1234567890!@#$%^&*()\", password_length)",
+        "peekOfCode": "def password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n    password_length = 0\n    if password_strength == \"Weak\":\n        password_length = 6\n    elif password_strength == \"Medium\":\n        password_length = 10\n    elif password_strength == \"Strong\":\n        password_length = 15\n    else:",
+        "detail": "passwordgenerator",
+        "documentation": {}
+    },
+    {
+        "label": "password_validation",
+        "kind": 2,
+        "importPath": "passwordgenerator",
+        "description": "passwordgenerator",
+        "peekOfCode": "def password_validation(password_input):\n    if not password_input == \"Weak\":\n        print()\n# import string\n# string.ascii_letters\n# string.printable",
         "detail": "passwordgenerator",
         "documentation": {}
     },
@@ -1299,7 +1397,7 @@
         "kind": 5,
         "importPath": "passwordgenerator",
         "description": "passwordgenerator",
-        "peekOfCode": "randomthing = random.seed(a=None, version=2)\n#print(randomthing)\n#shuffle = random.shuffle(1[1,2])\n#print(shuffle)\ndef password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n    password_length = 0\n    if password_strength == \"Weak\":\n        password_length = 6\n    elif password_strength == \"Medium\":",
+        "peekOfCode": "randomthing = random.seed(a=None, version=2)\n#print(randomthing)\n#shuffle = random.shuffle(1[1,2])\n#print(shuffle)\n#validations \n#must contain 1 special characters\n#must contain 1 uppercase letter \n#use mutuable data structure like a list \n#random.sample would be assigned to a list, meet the validations \n#word = list[word]",
         "detail": "passwordgenerator",
         "documentation": {}
     },
@@ -1308,7 +1406,16 @@
         "kind": 5,
         "importPath": "passwordgenerator",
         "description": "passwordgenerator",
-        "peekOfCode": "#shuffle = random.shuffle(1[1,2])\n#print(shuffle)\ndef password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n    password_length = 0\n    if password_strength == \"Weak\":\n        password_length = 6\n    elif password_strength == \"Medium\":\n        password_length = 10\n    else:",
+        "peekOfCode": "#shuffle = random.shuffle(1[1,2])\n#print(shuffle)\n#validations \n#must contain 1 special characters\n#must contain 1 uppercase letter \n#use mutuable data structure like a list \n#random.sample would be assigned to a list, meet the validations \n#word = list[word]\ndef password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")",
+        "detail": "passwordgenerator",
+        "documentation": {}
+    },
+    {
+        "label": "#word",
+        "kind": 5,
+        "importPath": "passwordgenerator",
+        "description": "passwordgenerator",
+        "peekOfCode": "#word = list[word]\ndef password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n    password_length = 0\n    if password_strength == \"Weak\":\n        password_length = 6\n    elif password_strength == \"Medium\":\n        password_length = 10\n    elif password_strength == \"Strong\":\n        password_length = 15",
         "detail": "passwordgenerator",
         "documentation": {}
     },

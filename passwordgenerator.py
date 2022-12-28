@@ -16,6 +16,15 @@ randomthing = random.seed(a=None, version=2)
 #shuffle = random.shuffle(1[1,2])
 #print(shuffle)
 
+
+#validations 
+#must contain 1 special characters
+#must contain 1 uppercase letter 
+#use mutuable data structure like a list 
+#random.sample would be assigned to a list, meet the validations 
+
+#word = list[word]
+
 def password_generator():
     password_strength = input("How strong do you want your password to be? Weak, Medium, Strong ")
     password_length = 0
@@ -23,10 +32,20 @@ def password_generator():
         password_length = 6
     elif password_strength == "Medium":
         password_length = 10
-    else:
+    elif password_strength == "Strong":
         password_length = 15
+    else:
+        print("Invalid input, the input must be 'Weak, Medium, or Strong'")
     sample = random.sample("abcdetfghijk1mnopqrstuvwxyz1234567890!@#$%^&*()", password_length)
     sample_password = "".join(sample)
     return sample_password
 
 print(password_generator())
+
+def password_validation(password_input):
+    if not password_input == "Weak":
+        print()
+        
+# import string
+# string.ascii_letters
+# string.printable
