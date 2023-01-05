@@ -151,6 +151,23 @@
         "documentation": {}
     },
     {
+        "label": "MongoClient",
+        "importPath": "pymongo",
+        "description": "pymongo",
+        "isExtraImport": true,
+        "detail": "pymongo",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
         "label": "random",
         "kind": 6,
         "isExtraImport": true,
@@ -1136,7 +1153,16 @@
         "kind": 2,
         "importPath": "learning",
         "description": "learning",
-        "peekOfCode": "def addup(x,y):\n    return x+y",
+        "peekOfCode": "def addup(x,y):\n    return x+y\ndef subtract(x,y):\n    return x-y",
+        "detail": "learning",
+        "documentation": {}
+    },
+    {
+        "label": "subtract",
+        "kind": 2,
+        "importPath": "learning",
+        "description": "learning",
+        "peekOfCode": "def subtract(x,y):\n    return x-y",
         "detail": "learning",
         "documentation": {}
     },
@@ -1303,6 +1329,33 @@
         "documentation": {}
     },
     {
+        "label": "MongoDBConnection",
+        "kind": 6,
+        "importPath": "mongodb",
+        "description": "mongodb",
+        "peekOfCode": "class MongoDBConnection(object):\n    \"\"\"MongoDB Connection\"\"\"\n    def __init__(self, host='127.0.0.1', port=27017):\n        \"\"\"\n        be sure to use the ip address not name for local windows\n        CAUTION: Don't do this in production!!!\n        \"\"\"\n        self.host = host\n        self.port = port\n        self.connection = None",
+        "detail": "mongodb",
+        "documentation": {}
+    },
+    {
+        "label": "print_mdb_collection",
+        "kind": 2,
+        "importPath": "mongodb",
+        "description": "mongodb",
+        "peekOfCode": "def print_mdb_collection(collection_name):\n    for doc in collection_name.find():\n        print(doc)\ndef main():\n    mongo = MongoDBConnection()\n    with mongo:\n        # mongodb database; it all starts here\n        db = mongo.connection.media\n        # collection in database\n        cd = db[\"cd\"]",
+        "detail": "mongodb",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "mongodb",
+        "description": "mongodb",
+        "peekOfCode": "def main():\n    mongo = MongoDBConnection()\n    with mongo:\n        # mongodb database; it all starts here\n        db = mongo.connection.media\n        # collection in database\n        cd = db[\"cd\"]\n        # notice how easy these are to create and that they are \"schemaless\"\n        # that is, the Python module defines the data structure in a dict,\n        # rather than the database which just stores what it is told",
+        "detail": "mongodb",
+        "documentation": {}
+    },
+    {
         "label": "calculate_average",
         "kind": 2,
         "importPath": "nov21",
@@ -1379,16 +1432,43 @@
         "kind": 2,
         "importPath": "passwordgenerator",
         "description": "passwordgenerator",
-        "peekOfCode": "def password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n    password_length = 0\n    if password_strength == \"Weak\":\n        password_length = 6\n    elif password_strength == \"Medium\":\n        password_length = 10\n    elif password_strength == \"Strong\":\n        password_length = 15\n    else:",
+        "peekOfCode": "def password_generator():\n    while True:\n        password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n        password_length = 0\n        password_strengths = {\n            \"Weak\": 6,\n            \"Medium\": 10,\n            \"Strong\": 15,\n        }\n        if password_strength not in password_strengths.keys(): #if this is false it goes to break ",
         "detail": "passwordgenerator",
         "documentation": {}
     },
     {
-        "label": "password_validation",
+        "label": "generate_random_string",
         "kind": 2,
         "importPath": "passwordgenerator",
         "description": "passwordgenerator",
-        "peekOfCode": "def password_validation(password_input):\n    if not password_input == \"Weak\":\n        print()\n# import string\n# string.ascii_letters\n# string.printable",
+        "peekOfCode": "def generate_random_string(length):\n    sample = random.sample(PASSWORD_CHARACTERS, length)\n    sample_password = \"\".join(sample)\n    return sample_password\n#print(password_generator())\ndef is_password_valid(password_input):\n    if not re.search(\"[a-z]\", password_input):\n        return False\n    if not re.search(\"[A-Z]\", password_input):\n        return False",
+        "detail": "passwordgenerator",
+        "documentation": {}
+    },
+    {
+        "label": "is_password_valid",
+        "kind": 2,
+        "importPath": "passwordgenerator",
+        "description": "passwordgenerator",
+        "peekOfCode": "def is_password_valid(password_input):\n    if not re.search(\"[a-z]\", password_input):\n        return False\n    if not re.search(\"[A-Z]\", password_input):\n        return False\n    if not re.search(\"[0-9]\", password_input):\n        return False\n    if not re.search(\"[!@#$%^&*()]\", password_input):\n        return False\n    return True ",
+        "detail": "passwordgenerator",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "passwordgenerator",
+        "description": "passwordgenerator",
+        "peekOfCode": "def main():\n   password_length = password_generator()\n   while True:\n       generated_string = generate_random_string(password_length)\n       if not is_password_valid(generated_string):\n           continue\n       break\n   print(generated_string)\n   #password_input = password_generator()\nif __name__ == \"__main__\":",
+        "detail": "passwordgenerator",
+        "documentation": {}
+    },
+    {
+        "label": "password_generator",
+        "kind": 2,
+        "importPath": "passwordgenerator",
+        "description": "passwordgenerator",
+        "peekOfCode": "def password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n    password_length = 0\n    password_strength = {\n        \"Weak\": 6,\n        \"Medium\": 10,\n        \"Strong\": 15,\n    }\n    if password_strength == \"Weak\":\n        password_length = 6",
         "detail": "passwordgenerator",
         "documentation": {}
     },
@@ -1397,7 +1477,16 @@
         "kind": 5,
         "importPath": "passwordgenerator",
         "description": "passwordgenerator",
-        "peekOfCode": "randomthing = random.seed(a=None, version=2)\n#print(randomthing)\n#shuffle = random.shuffle(1[1,2])\n#print(shuffle)\n#validations \n#must contain 1 special characters\n#must contain 1 uppercase letter \n#use mutuable data structure like a list \n#random.sample would be assigned to a list, meet the validations \n#word = list[word]",
+        "peekOfCode": "randomthing = random.seed(a=None, version=2)\nPASSWORD_CHARACTERS =  string.ascii_letters + string.punctuation + string.digits\n#print(randomthing)\n#shuffle = random.shuffle(1[1,2])\n#print(shuffle)\n#validations \n#must contain 1 special characters\n#must contain 1 uppercase letter \n#use mutuable data structure like a list \n#random.sample would be assigned to a list, meet the validations ",
+        "detail": "passwordgenerator",
+        "documentation": {}
+    },
+    {
+        "label": "PASSWORD_CHARACTERS",
+        "kind": 5,
+        "importPath": "passwordgenerator",
+        "description": "passwordgenerator",
+        "peekOfCode": "PASSWORD_CHARACTERS =  string.ascii_letters + string.punctuation + string.digits\n#print(randomthing)\n#shuffle = random.shuffle(1[1,2])\n#print(shuffle)\n#validations \n#must contain 1 special characters\n#must contain 1 uppercase letter \n#use mutuable data structure like a list \n#random.sample would be assigned to a list, meet the validations \n#word = list[word]",
         "detail": "passwordgenerator",
         "documentation": {}
     },
@@ -1406,7 +1495,7 @@
         "kind": 5,
         "importPath": "passwordgenerator",
         "description": "passwordgenerator",
-        "peekOfCode": "#shuffle = random.shuffle(1[1,2])\n#print(shuffle)\n#validations \n#must contain 1 special characters\n#must contain 1 uppercase letter \n#use mutuable data structure like a list \n#random.sample would be assigned to a list, meet the validations \n#word = list[word]\ndef password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")",
+        "peekOfCode": "#shuffle = random.shuffle(1[1,2])\n#print(shuffle)\n#validations \n#must contain 1 special characters\n#must contain 1 uppercase letter \n#use mutuable data structure like a list \n#random.sample would be assigned to a list, meet the validations \n#word = list[word]\n#using while loop to re enter the data \n#using dictionary to validate the input ",
         "detail": "passwordgenerator",
         "documentation": {}
     },
@@ -1415,7 +1504,7 @@
         "kind": 5,
         "importPath": "passwordgenerator",
         "description": "passwordgenerator",
-        "peekOfCode": "#word = list[word]\ndef password_generator():\n    password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n    password_length = 0\n    if password_strength == \"Weak\":\n        password_length = 6\n    elif password_strength == \"Medium\":\n        password_length = 10\n    elif password_strength == \"Strong\":\n        password_length = 15",
+        "peekOfCode": "#word = list[word]\n#using while loop to re enter the data \n#using dictionary to validate the input \n#calling a function inside of a function \ndef password_generator():\n    while True:\n        password_strength = input(\"How strong do you want your password to be? Weak, Medium, Strong \")\n        password_length = 0\n        password_strengths = {\n            \"Weak\": 6,",
         "detail": "passwordgenerator",
         "documentation": {}
     },
@@ -1640,7 +1729,7 @@
         "kind": 2,
         "importPath": "test_learning",
         "description": "test_learning",
-        "peekOfCode": "def test_addup():\n    assert learning.addup(4,3) == 7\ndef test_subtract():\n    assert subtract(3,7) == -4",
+        "peekOfCode": "def test_addup():\n    assert learning.addup(4,3) == 7\ndef test_subtract():\n    assert learning.subtract(3,7) == -4",
         "detail": "test_learning",
         "documentation": {}
     },
@@ -1649,7 +1738,7 @@
         "kind": 2,
         "importPath": "test_learning",
         "description": "test_learning",
-        "peekOfCode": "def test_subtract():\n    assert subtract(3,7) == -4",
+        "peekOfCode": "def test_subtract():\n    assert learning.subtract(3,7) == -4",
         "detail": "test_learning",
         "documentation": {}
     }
